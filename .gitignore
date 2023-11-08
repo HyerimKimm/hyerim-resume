@@ -1,0 +1,17 @@
+# 서버 폴더 ignore
+server/.idea/*
+server/node_modules/*
+server/package-lock.json
+server/log/*
+server/.DS_Store
+server/SSREADME.md
+server/config/secret.js
+
+# 최상위 폴더 ignore
+.idea/*
+node_modules/*
+package-lock.json
+log/*
+.DS_Store
+SSREADME.md
+config/secret.js
