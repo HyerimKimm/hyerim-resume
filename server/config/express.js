@@ -6,16 +6,14 @@ var cors = require("cors");
 module.exports = function () {
     const app = express();
 
-    app.use(compression());
-  
-    app.use(express.json());
+    /* 미들웨어 설정 */
+    app.use(compression()); //HTTP 요청을 압축 및 해제
+    app.use(express.json()); // body 값을 파싱
+    app.use(express.urlencoded({ extended: true })); //form 으로 제출되는 값 파싱
+    app.use(methodOverride()); // put, delete 요청 처리
+    app.use(cors()); // 웹브라우저 cors 설정 관리
 
-    app.use(express.urlencoded({ extended: true }));
-
-    app.use(methodOverride());
-
-    app.use(cors());
-
+    /* 직접 구현해야 하는 모듈 */
     require('../src/routes/indexRoute')(app);
 
     return app;
