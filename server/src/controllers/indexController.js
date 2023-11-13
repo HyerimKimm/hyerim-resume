@@ -15,7 +15,7 @@ exports.readResumeInfoByResumeId = async function (req, res) {
         try {
             /* ES6의 비구조 할당 */
             const [rows] = await indexDao.selectUserByResumeId(connection, resumeId);
-            console.log(rows)
+     
             return res.send({
                 result : rows,
                 isSuccess : true,
