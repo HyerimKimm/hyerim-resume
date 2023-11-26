@@ -1,9 +1,9 @@
-import {createGlobalStyle} from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 import NotoSansKRRegular from '../assets/fonts/NotoSansKR-Regular.ttf';
-import NotoSansKRBold from "../assets/fonts/NotoSansKR-Bold.ttf";
-import NotoSansKRThin from "../assets/fonts/NotoSansKR-Thin.ttf";
-import PoorStoryRegular from "../assets/fonts/PoorStory-Regular.ttf";
-import tokens from '../styles/tokens.json';
+import NotoSansKRBold from '../assets/fonts/NotoSansKR-Bold.ttf';
+import NotoSansKRThin from '../assets/fonts/NotoSansKR-Thin.ttf';
+import OrbitRegular from '../assets/fonts/Orbit-Regular.ttf';
+import tokens from './tokens.json';
 
 const globalTokens = tokens.global;
 
@@ -27,9 +27,9 @@ export const GlobalStyle = createGlobalStyle`
     src: url("${NotoSansKRThin}");
   }
   @font-face {
-    font-family: 'PoorStoryRegular';
+    font-family: 'OrbitRegular';
     font-weight: 400;
-    src: url("${PoorStoryRegular}");
+    src: url("${OrbitRegular}");
   }
 
   * {
@@ -37,6 +37,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: 'NotoSansKR';
+    font-size: ${globalTokens.BodyTextSize.value};
     font-weight: normal;
     color: ${globalTokens.Black.value};
     transition: 200ms;
@@ -83,5 +84,4 @@ export const GlobalStyle = createGlobalStyle`
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
   }
-
-`
+`;
