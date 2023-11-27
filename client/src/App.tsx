@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Heading1Typo } from './atoms/Typography.style';
+import axios from 'axios';
 
 function App() {
+  const [data, setData] = useState({});
+
+  const getResumeDatas = async () => {
+    const res = await axios.get('http://3.37.100.130:3010/resume/1');
+
+    setData(res.data.result[0]);
+  };
+
+  useEffect(() => {
+    getResumeDatas();
+  }, []);
+
   return (
     <AppContainer>
-      <Heading1Typo isDark={false}>
-        UX에 진심인 프론트앤드 개발자, 김혜림 입니다.
-      </Heading1Typo>
+      <Heading1Typo isDark={false}></Heading1Typo>
     </AppContainer>
   );
 }
