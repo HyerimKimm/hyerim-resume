@@ -1,15 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Heading1Typo } from './atoms/Typography.style';
+import { BodyTextTypo } from './atoms/Typography.style';
 import axios from 'axios';
+import { data } from './types/data';
+
+const initialData: data = {
+  title: '',
+  name: '',
+  profileImageUrl: '',
+  address: '',
+  email: '',
+  phoneNumber: '',
+  introduce: '',
+  links: [],
+  skills: [],
+};
 
 function App() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState<data>(initialData);
 
   const getResumeDatas = async () => {
     const res = await axios.get('http://3.37.100.130:3010/resume/1');
 
-    setData(res.data.result[0]);
+    if (res.statusText === 'OK') {
+      setData(res.data.result);
+    }
   };
 
   useEffect(() => {
@@ -18,13 +33,14 @@ function App() {
 
   return (
     <AppContainer>
-      <Heading1Typo isDark={false}></Heading1Typo>
+      <BodyTextTypo isDark={false}>{JSON.stringify(data)}</BodyTextTypo>
     </AppContainer>
   );
 }
 
 const AppContainer = styled.div`
   width: 100vw;
+  min-height: calc(100vh);
   display: flex;
   flex-direction: column;
   justify-content: start;
