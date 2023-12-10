@@ -7,6 +7,11 @@ export enum SkillLevel {
 export type skillCategory = 'Front-end' | 'Back-end' | 'Database' | 'Etc';
 
 export type data = {
+  profile: profile;
+  links: link[];
+  skills: skill[];
+};
+export type profile = {
   title: string;
   name: string;
   profileImageUrl: string;
@@ -14,8 +19,6 @@ export type data = {
   email: string;
   phoneNumber: string;
   introduce: string;
-  links: link[];
-  skills: skill[];
 };
 
 export type link = {
