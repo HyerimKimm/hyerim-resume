@@ -1,3 +1,6 @@
+export const LinkIconURL = {
+  Github: 'https://www.svgrepo.com/show/361181/github.svg',
+};
 export enum SkillLevel {
   '🥇' = 1,
   '🥈' = 2,

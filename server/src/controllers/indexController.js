@@ -22,7 +22,6 @@ exports.readResumeInfoByResumeId = async function (req, res) {
       connection,
       resumeId
     );
-    console.log(profile);
 
     resData = {
       profile: { ...profile[0] },

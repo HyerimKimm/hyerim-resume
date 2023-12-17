@@ -26,12 +26,28 @@ export const ResumeContainer = styled.main`
   min-height: calc(100vh);
 `;
 
-export const SectionWrap = styled.section`
+type FlexBoxType = {
+  d: 'row' | 'column';
+  j:
+    | 'start'
+    | 'center'
+    | 'end'
+    | 'space-between'
+    | 'space-around'
+    | 'space-evenly';
+  a: 'start' | 'center' | 'stretch' | 'end';
+  g: number;
+};
+
+export const SectionWrap = styled.section<FlexBoxType>`
   padding: ${globalTokens.Spacing20.value};
   border-radius: ${globalTokens.RegularRadius.value};
   border: 1px solid ${globalTokens.LightGray.value};
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: ${(props) => props.d};
+  justify-content: ${(props) => props.j};
+  align-items: ${(props) => props.a};
+  gap: ${(props) => props.g}px;
+
   width: 100%;
 `;
