@@ -55,9 +55,12 @@ export const GlobalStyle = createGlobalStyle`
   a,
   a:link,
   a:visited,
-  a:hover,
   a:active {
     text-decoration: none;
+    color : ${globalTokens.Primary.value}
+  }
+  a:hover {
+    opacity: 0.5;
   }
   textarea {
     resize: none;

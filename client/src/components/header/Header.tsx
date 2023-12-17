@@ -20,10 +20,14 @@ const Header = () => {
 
 const HeaderContainer = styled.header<{ isDark: boolean }>`
   width: 100%;
+  position: fixed;
+  top: 0;
+  height: 45px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.15);
 `;
 
 export default Header;

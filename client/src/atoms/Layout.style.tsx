@@ -14,6 +14,8 @@ export const AppContainer = styled.div<{ isDark: boolean }>`
 `;
 
 export const ResumeContainer = styled.main`
+  position: fixed;
+  top: 45px;
   width: 100%;
   max-width: 1200px;
   display: flex;
@@ -38,6 +40,14 @@ type FlexBoxType = {
   a: 'start' | 'center' | 'stretch' | 'end';
   g: number;
 };
+
+export const FlexBox = styled.div<FlexBoxType>`
+  display: flex;
+  flex-direction: ${(props) => props.d};
+  justify-content: ${(props) => props.j};
+  align-items: ${(props) => props.a};
+  gap: ${(props) => props.g}px;
+`;
 
 export const SectionWrap = styled.section<FlexBoxType>`
   padding: ${globalTokens.Spacing20.value};
