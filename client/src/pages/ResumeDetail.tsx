@@ -6,6 +6,7 @@ import Profile from '../components/profile/Profile';
 import { ResumeContainer } from '../atoms/Layout.style';
 import { useIsDarkStore } from '../store/store';
 import { useParams } from 'react-router-dom';
+import Skills from '../components/skills/Skills';
 
 const initialData: data = {
   profile: {
@@ -44,6 +45,7 @@ const ResumeDetail = () => {
     <ResumeContainer>
       <Heading2Typo isDark={isDark}>{data.profile.title}</Heading2Typo>
       <Profile profile={data.profile} links={data.links} />
+      <Skills skills={data.skills} />
     </ResumeContainer>
   );
 };

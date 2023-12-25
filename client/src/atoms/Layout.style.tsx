@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import tokens from '../styles/tokens.json';
+import { Heading4Typo } from './Typography.style';
 
 const globalTokens = tokens.global;
 
@@ -58,6 +59,9 @@ export const SectionWrap = styled.section<FlexBoxType>`
   justify-content: ${(props) => props.j};
   align-items: ${(props) => props.a};
   gap: ${(props) => props.g}px;
+  width: 100%;
+`;
 
+export const SectionTitleTypo = styled(Heading4Typo)`
   width: 100%;
 `;
