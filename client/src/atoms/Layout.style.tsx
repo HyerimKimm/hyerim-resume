@@ -60,6 +60,7 @@ export const SectionWrap = styled.section<FlexBoxType>`
   align-items: ${(props) => props.a};
   gap: ${(props) => props.g}px;
   width: 100%;
+  max-width: 900px;
 `;
 
 export const SectionTitleTypo = styled(Heading4Typo)`

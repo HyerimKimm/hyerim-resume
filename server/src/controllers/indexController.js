@@ -22,11 +22,16 @@ exports.readResumeInfoByResumeId = async function (req, res) {
       connection,
       resumeId
     );
+    const [projects] = await indexDao.selectProjectsByResumeId(
+      connection,
+      resumeId
+    );
 
     resData = {
       profile: { ...profile[0] },
       links: [...links],
       skills: [...skills],
+      projects: [...projects],
     };
 
     return res.send({

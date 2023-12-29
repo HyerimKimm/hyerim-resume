@@ -14,14 +14,48 @@ type SkillsPropsType = {
 
 const Skills = ({ skills }: SkillsPropsType) => {
   const isDark = useIsDarkStore((state) => state.isDark);
+  const frontSkills = skills.filter((skill) => skill.category === 'Front-end');
+  const backSkills = skills.filter((skill) => skill.category === 'Back-end');
+  const databaseSkills = skills.filter(
+    (skill) => skill.category === 'Database'
+  );
+  const etcSkills = skills.filter((skill) => skill.category === 'Etc');
 
   return (
-    <SectionWrap d="column" j="start" a="center" g={0}>
+    <SectionWrap d="column" j="start" a="center" g={3}>
       <SectionTitleTypo isDark={isDark}>Skills</SectionTitleTypo>
+
       <SkillsCategorySection>
         <SkillsCategoryTitle isDark={isDark}>Front-End</SkillsCategoryTitle>
         <SkillsCategoryDatas>
-          {skills.map((skill) => (
+          {frontSkills.map((skill) => (
+            <li key={skill.idSkills}>{skill.skillName}</li>
+          ))}
+        </SkillsCategoryDatas>
+      </SkillsCategorySection>
+
+      <SkillsCategorySection>
+        <SkillsCategoryTitle isDark={isDark}>Back-End</SkillsCategoryTitle>
+        <SkillsCategoryDatas>
+          {backSkills.map((skill) => (
+            <li key={skill.idSkills}>{skill.skillName}</li>
+          ))}
+        </SkillsCategoryDatas>
+      </SkillsCategorySection>
+
+      <SkillsCategorySection>
+        <SkillsCategoryTitle isDark={isDark}>Database</SkillsCategoryTitle>
+        <SkillsCategoryDatas>
+          {databaseSkills.map((skill) => (
+            <li key={skill.idSkills}>{skill.skillName}</li>
+          ))}
+        </SkillsCategoryDatas>
+      </SkillsCategorySection>
+
+      <SkillsCategorySection>
+        <SkillsCategoryTitle isDark={isDark}>Etc</SkillsCategoryTitle>
+        <SkillsCategoryDatas>
+          {etcSkills.map((skill) => (
             <li key={skill.idSkills}>{skill.skillName}</li>
           ))}
         </SkillsCategoryDatas>
@@ -35,20 +69,24 @@ const SkillsCategorySection = styled.div`
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
   gap: ${globalTokens.Spacing12.value};
 `;
 
-const SkillsCategoryTitle = styled(BodyTextTypo)``;
+const SkillsCategoryTitle = styled(BodyTextTypo)`
+  flex-grow: 1;
+  max-width: 200px;
+`;
 
 const SkillsCategoryDatas = styled.ul`
-  flex-grow: 1;
+  flex-grow: 3;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+
   > li {
     list-style-type: circle;
     list-style-position: inside;
+    margin-left: ${globalTokens.Spacing12.value};
   }
 `;
 

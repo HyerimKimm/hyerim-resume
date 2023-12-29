@@ -29,3 +29,15 @@ exports.selectSkillsByResumeId = async function (connection, resumeId) {
 
   return rows;
 };
+
+exports.selectProjectsByResumeId = async function (connection, resumeId) {
+  const selectProjectByResumeIdQuery = `SELECT projectId, projectName, startDate, endDate, orderNum, deployLink, repositoryLink FROM Projects WHERE resumeId = ? ORDER BY orderNum ASC`;
+
+  const params = [resumeId];
+
+  const rows = await connection.query(selectProjectByResumeIdQuery, params);
+
+  return rows;
+};
+
+exports.select;
