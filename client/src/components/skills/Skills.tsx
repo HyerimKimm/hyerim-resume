@@ -9,11 +9,11 @@ import SkillsItem from './SkillsItem';
 
 const globalTokens = tokens.global;
 
-type SkillsPropsType = {
+type skillsPropsType = {
   skills: skill[];
 };
 
-const Skills = ({ skills }: SkillsPropsType) => {
+const Skills = ({ skills }: skillsPropsType) => {
   const isDark = useIsDarkStore((state) => state.isDark);
   const frontSkills = skills.filter((skill) => skill.category === 'Front-end');
   const backSkills = skills.filter((skill) => skill.category === 'Back-end');

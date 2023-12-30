@@ -6,27 +6,21 @@ const globalTokens = tokens.global;
 
 export const AppContainer = styled.div<{ isDark: boolean }>`
   width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
+  height: 100vh;
   background-color: ${(props) =>
     props.isDark ? globalTokens.Black.value : globalTokens.White.value};
+  overflow: hidden;
 `;
 
 export const ResumeContainer = styled.main`
-  position: fixed;
-  top: 45px;
   width: 100%;
-  max-width: 1200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  flex-wrap: wrap;
+  height: calc(100vh - 45px);
   padding: ${globalTokens.Spacing20.value};
   gap: ${globalTokens.Spacing12.value};
-  min-height: calc(100vh);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 type FlexBoxType = {

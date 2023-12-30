@@ -20,7 +20,8 @@ const Header = () => {
 
 const HeaderContainer = styled.header<{ isDark: boolean }>`
   width: 100%;
-  position: fixed;
+  position: sticky;
+  z-index: 1;
   top: 0;
   height: 45px;
   display: flex;
@@ -28,6 +29,7 @@ const HeaderContainer = styled.header<{ isDark: boolean }>`
   justify-content: space-evenly;
   align-items: center;
   box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.15);
+  background-color: ${globalTokens.White.value};
 `;
 
 export default Header;

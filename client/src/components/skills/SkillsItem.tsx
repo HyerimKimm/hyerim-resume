@@ -4,15 +4,16 @@ import { BodyTextTypo } from '../../atoms/Typography.style';
 import tokens from '../../styles/tokens.json';
 import { skill, skillCategory } from '../../types/data';
 import { useIsDarkStore } from '../../store/store';
+import SkillsItemLi from './SkillsItemLi';
 
 const globalTokens = tokens.global;
 
-type SkillsItemPropsType = {
+type skillsItemPropsType = {
   title: skillCategory;
   skills: skill[];
 };
 
-const SkillsItem = ({ title, skills }: SkillsItemPropsType) => {
+const SkillsItem = ({ title, skills }: skillsItemPropsType) => {
   const isDark = useIsDarkStore((state) => state.isDark);
 
   return (
@@ -20,7 +21,7 @@ const SkillsItem = ({ title, skills }: SkillsItemPropsType) => {
       <SkillsCategoryTitle isDark={isDark}>{title}</SkillsCategoryTitle>
       <SkillsCategoryDatas>
         {skills.map((skill) => (
-          <li key={skill.idSkills}>{skill.skillName}</li>
+          <SkillsItemLi key={skill.idSkills} skill={skill} />
         ))}
       </SkillsCategoryDatas>
     </SkillsCategorySection>
@@ -45,12 +46,6 @@ const SkillsCategoryDatas = styled.ul`
   flex-grow: 3;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-
-  > li {
-    list-style-type: circle;
-    list-style-position: inside;
-    margin-left: ${globalTokens.Spacing12.value};
-  }
 `;
 
 export default SkillsItem;
