@@ -48,7 +48,7 @@ const Profile = ({ profile, links }: profilePropsType) => {
         <SectionTitleTypo isDark={isDark}>Introduce</SectionTitleTypo>
         <IntroduceInfoWrap
           dangerouslySetInnerHTML={{ __html: profile.introduce }}
-        ></IntroduceInfoWrap>
+        />
       </SectionWrap>
     </>
   );
