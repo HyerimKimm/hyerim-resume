@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import tokens from '../styles/tokens.json';
-import { Heading4Typo } from './Typography.style';
+import { Heading3Typo } from './Typography.style';
 
 const globalTokens = tokens.global;
 
@@ -57,6 +57,6 @@ export const SectionWrap = styled.section<FlexBoxType>`
   max-width: 900px;
 `;
 
-export const SectionTitleTypo = styled(Heading4Typo)`
+export const SectionTitleTypo = styled(Heading3Typo)`
   width: 100%;
 `;

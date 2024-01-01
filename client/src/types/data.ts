@@ -14,6 +14,7 @@ export type data = {
   profile: profile;
   links: link[];
   skills: skill[];
+  projects: project[];
 };
 export type profile = {
   title: string;
@@ -39,4 +40,9 @@ export type skill = {
 export type project = {
   projectId: number;
   projectName: string;
+  startDate: string;
+  endDate: string;
+  orderNum: number;
+  deployLink: string;
+  repositoryLink: string;
 };

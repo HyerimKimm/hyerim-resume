@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { data } from '../types/data';
-import { Heading2Typo } from '../atoms/Typography.style';
+import { Heading1Typo } from '../atoms/Typography.style';
 import axios from 'axios';
 import Profile from '../components/profile/Profile';
 import { ResumeContainer } from '../atoms/Layout.style';
@@ -21,6 +21,7 @@ const initialData: data = {
   },
   links: [],
   skills: [],
+  projects: [],
 };
 
 const ResumeDetail = () => {
@@ -44,10 +45,10 @@ const ResumeDetail = () => {
 
   return (
     <ResumeContainer>
-      <Heading2Typo isDark={isDark}>{data.profile.title}</Heading2Typo>
+      <Heading1Typo isDark={isDark}>{data.profile.title}</Heading1Typo>
       <Profile profile={data.profile} links={data.links} />
       <Skills skills={data.skills} />
-      <Projects />
+      <Projects projects={data.projects} />
     </ResumeContainer>
   );
 };

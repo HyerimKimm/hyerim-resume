@@ -21,6 +21,9 @@ export const Heading3Typo = styled(Typo)`
 export const Heading4Typo = styled(Typo)`
   font-size: ${globalTokens.Heading4Size.value};
 `;
+export const Heading5Typo = styled(Typo)`
+  font-size: ${globalTokens.Heading5Size.value};
+`;
 export const BodyTextTypo = styled(Typo)``;
 export const SmallTextTypo = styled(Typo)`
   font-size: ${globalTokens.SmallTextSize.value};

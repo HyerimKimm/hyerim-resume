@@ -44,7 +44,7 @@ const Profile = ({ profile, links }: profilePropsType) => {
           ))}
         </InfoWrap>
       </SectionWrap>
-      <SectionWrap d="column" j="center" a="center" g={8}>
+      <SectionWrap d="column" j="center" a="start" g={8}>
         <SectionTitleTypo isDark={isDark}>Introduce</SectionTitleTypo>
         <IntroduceInfoWrap
           dangerouslySetInnerHTML={{ __html: profile.introduce }}

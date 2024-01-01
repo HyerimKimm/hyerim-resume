@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BodyTextTypo } from '../../atoms/Typography.style';
+import { BodyTextTypo, Heading5Typo } from '../../atoms/Typography.style';
 import tokens from '../../styles/tokens.json';
 import { skill, skillCategory } from '../../types/data';
 import { useIsDarkStore } from '../../store/store';
@@ -37,7 +37,7 @@ const SkillsCategorySection = styled.div`
   gap: ${globalTokens.Spacing12.value};
 `;
 
-const SkillsCategoryTitle = styled(BodyTextTypo)`
+const SkillsCategoryTitle = styled(Heading5Typo)`
   flex-grow: 1;
   max-width: 200px;
 `;
