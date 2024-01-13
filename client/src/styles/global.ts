@@ -43,6 +43,10 @@ export const GlobalStyle = createGlobalStyle`
     transition: 200ms;
     outline: 0;
     border: none;
+    & ::selection {
+      color: ${globalTokens.Black.value};
+      background-color: ${globalTokens.PrimaryLight.value};
+    }
   }
   button {
     border-style: none;

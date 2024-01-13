@@ -38,8 +38,10 @@ const Profile = ({ profile, links }: profilePropsType) => {
                 <IconImg src={LinkIconURL['Notion']} />
               ) : (
                 <IconImg src={LinkIconURL['Blog']} />
-              )}{' '}
-              <a href={link.url}>{link.linkName} 바로가기</a>
+              )}
+              <a href={link.url} target={'_blank'} rel="noopener noreferrer">
+                {link.linkName} 바로가기
+              </a>
             </FlexBox>
           ))}
         </InfoWrap>
