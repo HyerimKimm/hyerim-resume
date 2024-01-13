@@ -36,12 +36,21 @@ type FlexBoxType = {
   g: number;
 };
 
+type GridBoxType = {};
+
 export const FlexBox = styled.div<FlexBoxType>`
   display: flex;
   flex-direction: ${(props) => props.d};
   justify-content: ${(props) => props.j};
   align-items: ${(props) => props.a};
   gap: ${(props) => props.g}px;
+`;
+
+export const GridBox = styled.div<GridBoxType>`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  border: 1px solid grey;
 `;
 
 export const SectionWrap = styled.section<FlexBoxType>`

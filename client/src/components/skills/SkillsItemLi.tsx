@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import tokens from '../../styles/tokens.json';
 import { SkillLevel, skill } from '../../types/data';
+import { TABLET_WIDTH } from '../../constants/constants';
 
 const globalTokens = tokens.global;
 
@@ -43,7 +44,7 @@ const LiContainer = styled.li`
 `;
 
 const LiDescription = styled.div<{ isHover: boolean }>`
-  @media screen and (max-width: 950px) {
+  @media screen and (max-width: ${TABLET_WIDTH}) {
     display: none;
   }
   opacity: ${(props) => (props.isHover ? 1 : 0)};

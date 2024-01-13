@@ -15,8 +15,8 @@ const Projects = ({ projects }: projectPropsType) => {
   return (
     <SectionWrap d="column" j="start" a="center" g={3}>
       <SectionTitleTypo isDark={isDark}>Projects</SectionTitleTypo>
-      {projects.map((project) => (
-        <ProjectItem project={project} />
+      {projects.map((project, index) => (
+        <ProjectItem key={index} project={project} />
       ))}
     </SectionWrap>
   );

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { data } from '../types/data';
+import { hyerimAxiosResponse, data } from '../types/data';
 import { Heading1Typo } from '../atoms/Typography.style';
-import axios from 'axios';
 import Profile from '../components/profile/Profile';
 import { ResumeContainer } from '../atoms/Layout.style';
 import { useIsDarkStore } from '../store/store';
 import { useParams } from 'react-router-dom';
 import Skills from '../components/skills/Skills';
 import Projects from '../components/projects/Projects';
+import { getResumeDatas } from '../service/resumeApi';
 
 const initialData: data = {
   profile: {
@@ -31,16 +31,20 @@ const ResumeDetail = () => {
   const [data, setData] = useState<data>(initialData);
 
   // 이력서 데이터를 불러오는 함수
-  const getResumeDatas = async () => {
-    const res = await axios.get(`http://3.37.100.130:5999/resume/${id}`);
+  const httpGetResumeDatas = async () => {
+    try {
+      const params = { id: id };
 
-    if (res.statusText === 'OK') {
-      setData(res.data.result);
-    }
+      const res: hyerimAxiosResponse = await getResumeDatas(params);
+
+      if (res.isSuccess) {
+        setData(res.result);
+      }
+    } catch (e) {}
   };
 
   useEffect(() => {
-    getResumeDatas();
+    httpGetResumeDatas();
   }, []);
 
   return (
