@@ -1,9 +1,15 @@
-import { AxiosResponse } from 'axios';
 import { hyerimHttp } from './hyerimHttp';
-import { hyerimAxiosResponse } from '../types/data';
+import { data } from '../types/data';
 
 type getResumeDatasPropsType = {
   id: string | undefined;
+};
+
+export type hyerimAxiosResponse = {
+  code: number;
+  isSuccess: boolean;
+  message: string;
+  result: data;
 };
 
 export const getResumeDatas = (

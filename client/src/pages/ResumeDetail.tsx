@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { hyerimAxiosResponse, data } from '../types/data';
+import { useParams } from 'react-router-dom';
+import { data } from '../types/data';
 import { Heading1Typo } from '../atoms/Typography.style';
 import Profile from '../components/profile/Profile';
 import { ResumeContainer } from '../atoms/Layout.style';
 import { useIsDarkStore } from '../store/store';
-import { useParams } from 'react-router-dom';
 import Skills from '../components/skills/Skills';
 import Projects from '../components/projects/Projects';
-import { getResumeDatas } from '../service/resumeApi';
+import { hyerimAxiosResponse, getResumeDatas } from '../service/resumeApi';
 
 const initialData: data = {
   profile: {

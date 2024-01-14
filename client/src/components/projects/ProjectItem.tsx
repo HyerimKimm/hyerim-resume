@@ -19,13 +19,16 @@ const ProjectItem = ({ project }: projectItemPropsType) => {
           {project.startDate} - {project.endDate}
         </SmallTextTypo>
         {project.deployLink && (
-          <a
-            href={project.deployLink}
-            target={'_blank'}
-            rel="noopener noreferrer"
-          >
-            배포링크 바로가기
-          </a>
+          <>
+            👉🏻{' '}
+            <a
+              href={project.deployLink}
+              target={'_blank'}
+              rel="noopener noreferrer"
+            >
+              배포링크 바로가기
+            </a>
+          </>
         )}
       </FlexBox>
       <FlexBox d="column" j="center" a="center" g={0}>

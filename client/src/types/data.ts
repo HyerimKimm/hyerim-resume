@@ -13,13 +13,6 @@ export enum SkillLevel {
 
 export type skillCategory = 'Front-end' | 'Back-end' | 'Database' | 'Etc';
 
-export type hyerimAxiosResponse = {
-  code: number;
-  isSuccess: boolean;
-  message: string;
-  result: data;
-};
-
 export type data = {
   profile: profile;
   links: link[];
@@ -59,4 +52,9 @@ export type project = {
   orderNum: number;
   deployLink: string;
   repositoryLink: string;
+  links: string;
+  staff: string;
+  description: string;
+  responsibilities: string;
+  results: string;
 };
