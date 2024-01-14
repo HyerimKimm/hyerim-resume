@@ -61,7 +61,11 @@ export const GlobalStyle = createGlobalStyle`
   a:visited,
   a:active {
     text-decoration: none;
-    color : ${globalTokens.Primary.value}
+    color : ${globalTokens.Primary.value};
+    > * {
+      text-decoration: none;
+      color : ${globalTokens.Primary.value};
+    }
   }
   a:hover {
     opacity: 0.5;

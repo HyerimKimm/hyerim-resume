@@ -36,8 +36,6 @@ type FlexBoxType = {
   g: number;
 };
 
-type GridBoxType = {};
-
 export const FlexBox = styled.div<FlexBoxType>`
   display: flex;
   flex-direction: ${(props) => props.d};
@@ -46,11 +44,15 @@ export const FlexBox = styled.div<FlexBoxType>`
   gap: ${(props) => props.g}px;
 `;
 
+type GridBoxType = {
+  rg: number;
+};
+
 export const GridBox = styled.div<GridBoxType>`
   width: 100%;
   display: grid;
-  grid-template-columns: 2fr 5fr;
-  border: 1px solid grey;
+  grid-template-columns: 3fr 7fr;
+  gap: ${(props) => props.rg}px;
 `;
 
 export const SectionWrap = styled.section<FlexBoxType>`
@@ -68,4 +70,6 @@ export const SectionWrap = styled.section<FlexBoxType>`
 
 export const SectionTitleTypo = styled(Heading3Typo)`
   width: 100%;
+  font-weight: bold;
+  color: ${globalTokens.Primary.value};
 `;

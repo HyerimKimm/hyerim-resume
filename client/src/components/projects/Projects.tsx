@@ -1,7 +1,11 @@
 import React from 'react';
 import { useIsDarkStore } from '../../store/store';
 
-import { SectionTitleTypo, SectionWrap } from '../../atoms/Layout.style';
+import {
+  FlexBox,
+  SectionTitleTypo,
+  SectionWrap,
+} from '../../atoms/Layout.style';
 import { project } from '../../types/data';
 import ProjectItem from './ProjectItem';
 
@@ -13,11 +17,13 @@ const Projects = ({ projects }: projectPropsType) => {
   const isDark = useIsDarkStore((state) => state.isDark);
 
   return (
-    <SectionWrap d="column" j="start" a="center" g={3}>
+    <SectionWrap d="column" j="start" a="center" g={12}>
       <SectionTitleTypo isDark={isDark}>Projects</SectionTitleTypo>
-      {projects.map((project, index) => (
-        <ProjectItem key={index} project={project} />
-      ))}
+      <FlexBox d="column" a="center" j="center" g={20}>
+        {projects.map((project, index) => (
+          <ProjectItem key={index} project={project} />
+        ))}
+      </FlexBox>
     </SectionWrap>
   );
 };
