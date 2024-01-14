@@ -18,6 +18,7 @@ export type data = {
   links: link[];
   skills: skill[];
   projects: project[];
+  careers: career[];
 };
 
 export type profile = {
@@ -57,4 +58,15 @@ export type project = {
   description: string;
   responsibilities: string;
   results: string;
+};
+
+export type career = {
+  careerId: number;
+  companyName: string;
+  startDate: string;
+  endDate: string;
+  departmentName: string;
+  responsibilities: string;
+  results: string;
+  orderNum: number;
 };

@@ -37,9 +37,12 @@ const LiContainer = styled.li`
   list-style-position: inside;
   margin-left: ${globalTokens.Spacing12.value};
   position: relative;
-  cursor: pointer;
-  &:hover {
-    color: ${globalTokens.Gray.value};
+
+  @media screen and (min-width: ${TABLET_WIDTH}) {
+    cursor: pointer;
+    &:hover {
+      color: ${globalTokens.Gray.value};
+    }
   }
 `;
 
