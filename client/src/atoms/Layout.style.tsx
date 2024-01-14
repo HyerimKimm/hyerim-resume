@@ -16,7 +16,7 @@ export const ResumeContainer = styled.main`
   width: 100%;
   height: calc(100vh - 45px);
   padding: ${globalTokens.Spacing20.value};
-  gap: ${globalTokens.Spacing12.value};
+  gap: ${globalTokens.Spacing20.value};
   overflow-y: auto;
   display: flex;
   flex-direction: column;

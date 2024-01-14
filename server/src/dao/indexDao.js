@@ -40,4 +40,14 @@ exports.selectProjectsByResumeId = async function (connection, resumeId) {
   return rows;
 };
 
+exports.selectCareersByResumeId = async function (connection, resumeId) {
+  const selectCareersByResumeIdQuery = `SELECT careerId, companyName, startDate, endDate, departmentName, responsibilities, results, orderNum FROM Careers WHERE resumeId = ? ORDER BY orderNum ASC`;
+
+  const params = [resumeId];
+
+  const rows = await connection.query(selectCareersByResumeIdQuery, params);
+
+  return rows;
+};
+
 exports.select;
