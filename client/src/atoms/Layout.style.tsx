@@ -51,7 +51,7 @@ type GridBoxType = {
 export const GridBox = styled.div<GridBoxType>`
   width: 100%;
   display: grid;
-  grid-template-columns: 3fr 7fr;
+  grid-template-columns: 1fr 3fr;
   gap: ${(props) => props.rg}px;
 `;
 

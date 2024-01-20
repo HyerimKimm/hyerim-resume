@@ -8,6 +8,7 @@ import { useIsDarkStore } from '../store/store';
 import Skills from '../components/skills/Skills';
 import Projects from '../components/projects/Projects';
 import { hyerimAxiosResponse, getResumeDatas } from '../service/resumeApi';
+import Careers from '../components/careers/Careers';
 
 const initialData: data = {
   profile: {
@@ -54,6 +55,7 @@ const ResumeDetail = () => {
       <Profile profile={data.profile} links={data.links} />
       <Skills skills={data.skills} />
       <Projects projects={data.projects} />
+      <Careers careers={data.careers} />
     </ResumeContainer>
   );
 };
