@@ -22,6 +22,7 @@ const initialData: data = {
   links: [],
   skills: [],
   projects: [],
+  careers: [],
 };
 
 const ResumeDetail = () => {

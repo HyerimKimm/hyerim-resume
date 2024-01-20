@@ -9,11 +9,12 @@ exports.greeting = async function (req, res) {
 
 // resumeId를 경로 변수로 받아서 이력서 정보를 조회 (이름, 주소, 휴대폰번호, 이메일, 프로필사진, 이력서제목, 짧은 자기소개)
 exports.readResumeInfoByResumeId = async function (req, res) {
+  const connection = await pool.getConnection(async (conn) => conn);
+
   try {
     logger.info("readResumeInfoByResumeId 실행됨");
     let resData = {};
     const { resumeId } = req.params;
-    const connection = await pool.getConnection(async (conn) => conn);
 
     /* ES6의 비구조 할당 */
     const [profile] = await indexDao.selectUserByResumeId(connection, resumeId);
@@ -48,5 +49,7 @@ exports.readResumeInfoByResumeId = async function (req, res) {
   } catch (err) {
     logger.error(`example DB Connection error\n: ${JSON.stringify(err)}`);
     return false;
+  } finally {
+    connection.release();
   }
 };
