@@ -10,7 +10,7 @@ function App() {
 
   return (
     <AppContainer isDark={isDark}>
-      <Header />
+      {/* <Header /> */}
       <Router>
         <Routes>
           <Route path="/resume/:id" element={<ResumeDetail />} />

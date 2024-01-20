@@ -14,7 +14,7 @@ export const AppContainer = styled.div<{ isDark: boolean }>`
 
 export const ResumeContainer = styled.main`
   width: 100%;
-  height: calc(100vh - 45px);
+  height: 100%;
   padding: ${globalTokens.Spacing20.value};
   gap: ${globalTokens.Spacing20.value};
   overflow-y: auto;
