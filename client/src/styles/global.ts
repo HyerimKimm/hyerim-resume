@@ -7,7 +7,11 @@ import tokens from './tokens.json';
 
 const globalTokens = tokens.global;
 
-export const GlobalStyle = createGlobalStyle`
+type globalStylePropsType = {
+  isDark: boolean;
+};
+
+export const GlobalStyle = createGlobalStyle<globalStylePropsType>`
   @font-face {
     font-family : 'NotoSansKR';
     font-style : normal;
@@ -43,6 +47,8 @@ export const GlobalStyle = createGlobalStyle`
     transition: 200ms;
     outline: 0;
     border: none;
+    color: ${(props) =>
+      props.isDark ? globalTokens.White.value : globalTokens.Black.value};
     & ::selection {
       color: ${globalTokens.Black.value};
       background-color: ${globalTokens.PrimaryLight.value};

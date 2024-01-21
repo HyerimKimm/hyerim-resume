@@ -9,6 +9,8 @@ import Skills from '../components/skills/Skills';
 import Projects from '../components/projects/Projects';
 import { hyerimAxiosResponse, getResumeDatas } from '../service/resumeApi';
 import Careers from '../components/careers/Careers';
+import Toggle from '../atoms/toggle/Toggle';
+import styled from 'styled-components';
 
 const initialData: data = {
   profile: {
@@ -29,6 +31,7 @@ const initialData: data = {
 const ResumeDetail = () => {
   const { id } = useParams();
   const isDark = useIsDarkStore((state) => state.isDark);
+  const setIsDark = useIsDarkStore((state) => state.setIsDark);
 
   const [data, setData] = useState<data>(initialData);
 
@@ -51,6 +54,15 @@ const ResumeDetail = () => {
 
   return (
     <ResumeContainer>
+      <IsDarkTogglePosition>
+        <Toggle
+          isDark={isDark}
+          isSelected={isDark}
+          setIsSelected={() => {
+            setIsDark(!isDark);
+          }}
+        />
+      </IsDarkTogglePosition>
       <Heading1Typo isDark={isDark}>{data.profile.title}</Heading1Typo>
       <Profile profile={data.profile} links={data.links} />
       <Skills skills={data.skills} />
@@ -59,5 +71,11 @@ const ResumeDetail = () => {
     </ResumeContainer>
   );
 };
+
+const IsDarkTogglePosition = styled.div`
+  position: fixed;
+  top: 10px;
+  right: 10px;
+`;
 
 export default ResumeDetail;

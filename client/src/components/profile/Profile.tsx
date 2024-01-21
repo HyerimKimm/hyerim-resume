@@ -49,6 +49,7 @@ const Profile = ({ profile, links }: profilePropsType) => {
       <SectionWrap d="column" j="center" a="start" g={8}>
         <SectionTitleTypo isDark={isDark}>Introduce</SectionTitleTypo>
         <IntroduceInfoWrap
+          isDark={isDark}
           dangerouslySetInnerHTML={{ __html: profile.introduce }}
         />
       </SectionWrap>
@@ -67,6 +68,9 @@ const InfoWrap = styled.div`
   gap: ${globalTokens.Spacing4.value};
 `;
 
-const IntroduceInfoWrap = styled.div``;
+const IntroduceInfoWrap = styled.div<{ isDark: boolean }>`
+  color: ${(props) =>
+    props.isDark ? globalTokens.White.value : globalTokens.Black.value};
+`;
 
 export default Profile;

@@ -3,33 +3,23 @@ import styled from 'styled-components';
 import { Button } from '../../atoms/Buttons.style';
 import { useIsDarkStore } from '../../store/store';
 import tokens from '../../styles/tokens.json';
+import Toggle from '../../atoms/toggle/Toggle';
 
 const globalTokens = tokens.global;
 
 const Header = () => {
   const isDark = useIsDarkStore((state) => state.isDark);
 
-  return (
-    <HeaderContainer isDark={isDark}>
-      <Button isDark={isDark}>프로필</Button>
-      <Button isDark={isDark}>연락처</Button>
-      <Button isDark={isDark}>보유기술</Button>
-    </HeaderContainer>
-  );
+  return <HeaderContainer isDark={isDark}></HeaderContainer>;
 };
 
 const HeaderContainer = styled.header<{ isDark: boolean }>`
-  width: 100%;
   position: sticky;
-  z-index: 1;
   top: 0;
-  height: 45px;
+  right: 0;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
   align-items: center;
-  box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.15);
-  background-color: ${globalTokens.White.value};
 `;
 
 export default Header;
