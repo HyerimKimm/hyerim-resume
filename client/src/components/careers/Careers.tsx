@@ -18,11 +18,9 @@ const Careers = ({ careers }: careersPropsType) => {
   return (
     <SectionWrap d="column" j="start" a="center" g={12}>
       <SectionTitleTypo isDark={isDark}>Careers</SectionTitleTypo>
-      <FlexBox d="column" a="center" j="center" g={24}>
-        {careers.map((career, index) => (
-          <CareerItem key={career.careerId} career={career} />
-        ))}
-      </FlexBox>
+      {careers.map((career, index) => (
+        <CareerItem key={career.careerId} career={career} />
+      ))}
     </SectionWrap>
   );
 };
