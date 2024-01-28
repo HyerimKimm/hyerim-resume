@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import tokens from '../styles/tokens.json';
 import { Heading3Typo } from './Typography.style';
+import { frameInBottomToTopAnimation } from '../styles/animation';
 
 const globalTokens = tokens.global;
 
@@ -66,6 +67,9 @@ export const SectionWrap = styled.section<FlexBoxType>`
   gap: ${(props) => props.g}px;
   width: 100%;
   max-width: 900px;
+  &.animationBtoT {
+    animation: ${frameInBottomToTopAnimation} 0.5s;
+  }
 `;
 
 export const SectionTitleTypo = styled(Heading3Typo)`

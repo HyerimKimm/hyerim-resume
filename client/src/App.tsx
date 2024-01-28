@@ -3,7 +3,6 @@ import { AppContainer } from './atoms/Layout.style';
 import { useIsDarkStore } from './store/store';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ResumeDetail from './pages/ResumeDetail';
-import Header from './components/header/Header';
 import { GlobalStyle } from './styles/global';
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
     <>
       <GlobalStyle isDark={isDark} />
       <AppContainer isDark={isDark}>
-        <Header />
         <Router>
           <Routes>
             <Route path="/resume/:id" element={<ResumeDetail />} />

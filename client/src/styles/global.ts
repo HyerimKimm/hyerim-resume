@@ -4,6 +4,7 @@ import NotoSansKRBold from '../assets/fonts/NotoSansKR-Bold.ttf';
 import NotoSansKRThin from '../assets/fonts/NotoSansKR-Thin.ttf';
 import OrbitRegular from '../assets/fonts/Orbit-Regular.ttf';
 import tokens from './tokens.json';
+import { frameInBottomToTopAnimation } from './animation';
 
 const globalTokens = tokens.global;
 
@@ -52,6 +53,9 @@ export const GlobalStyle = createGlobalStyle<globalStylePropsType>`
     & ::selection {
       color: ${globalTokens.Black.value};
       background-color: ${globalTokens.PrimaryLight.value};
+    }
+    &.animationBtoT {
+      animation: ${frameInBottomToTopAnimation} 1.5s;
     }
   }
   button {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { profile, link, LinkIconURL } from '../../types/data';
 import styled from 'styled-components';
 import { BodyTextTypo, Heading4Typo } from '../../atoms/Typography.style';
@@ -20,10 +20,12 @@ type profilePropsType = {
 
 const Profile = ({ profile, links }: profilePropsType) => {
   const isDark = useIsDarkStore((state) => state.isDark);
+  const target1 = useRef(null);
+  const target2 = useRef(null);
 
   return (
     <>
-      <SectionWrap d="row" j="center" a="center" g={8}>
+      <SectionWrap d="row" j="center" a="center" g={8} ref={target1}>
         <ProfileImgBox src={profile.profileImageUrl} />
         <InfoWrap>
           <Heading4Typo isDark={isDark}>{profile.name}</Heading4Typo>
@@ -46,7 +48,7 @@ const Profile = ({ profile, links }: profilePropsType) => {
           ))}
         </InfoWrap>
       </SectionWrap>
-      <SectionWrap d="column" j="center" a="start" g={8}>
+      <SectionWrap d="column" j="center" a="start" g={8} ref={target2}>
         <SectionTitleTypo isDark={isDark}>Introduce</SectionTitleTypo>
         <IntroduceInfoWrap
           isDark={isDark}

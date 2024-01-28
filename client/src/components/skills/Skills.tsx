@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { skill } from '../../types/data';
 import {
   FlexBox,
@@ -19,6 +19,8 @@ type skillsPropsType = {
 
 const Skills = ({ skills }: skillsPropsType) => {
   const isDark = useIsDarkStore((state) => state.isDark);
+  const target = useRef(null);
+
   const frontSkills = skills.filter((skill) => skill.category === 'Front-end');
   const backSkills = skills.filter((skill) => skill.category === 'Back-end');
   const databaseSkills = skills.filter(
@@ -27,7 +29,7 @@ const Skills = ({ skills }: skillsPropsType) => {
   const etcSkills = skills.filter((skill) => skill.category === 'Etc');
 
   return (
-    <SectionWrap d="column" j="start" a="start" g={4}>
+    <SectionWrap d="column" j="start" a="start" g={4} ref={target}>
       <SectionTitleTypo isDark={isDark}>Skills</SectionTitleTypo>
       <FlexBox d="column" j="start" a="center" g={20} style={{ width: '100%' }}>
         <SkillsItem title="Front-end" skills={frontSkills} />

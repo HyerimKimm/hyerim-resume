@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useIsDarkStore } from '../../store/store';
 
 import {
@@ -15,9 +15,10 @@ type projectPropsType = {
 
 const Projects = ({ projects }: projectPropsType) => {
   const isDark = useIsDarkStore((state) => state.isDark);
+  const target = useRef(null);
 
   return (
-    <SectionWrap d="column" j="start" a="center" g={12}>
+    <SectionWrap d="column" j="start" a="center" g={12} ref={target}>
       <SectionTitleTypo isDark={isDark}>Projects</SectionTitleTypo>
       <FlexBox d="column" a="center" j="center" g={24}>
         {projects.map((project, index) => (
