@@ -1,9 +1,9 @@
-import { MutableRefObject, useEffect, useState, useRef } from 'react';
+import { useRef } from 'react';
 
 export default function useIntersectionObserver(callback: Function) {
   const observer = useRef(
     new IntersectionObserver(
-      (entries, observer) => {
+      (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             callback();
