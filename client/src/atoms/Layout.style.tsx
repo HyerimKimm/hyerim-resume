@@ -67,9 +67,6 @@ export const SectionWrap = styled.section<FlexBoxType>`
   gap: ${(props) => props.g}px;
   width: 100%;
   max-width: 900px;
-  &.animationBtoT {
-    animation: ${frameInBottomToTopAnimation} 0.5s;
-  }
 `;
 
 export const SectionTitleTypo = styled(Heading3Typo)`

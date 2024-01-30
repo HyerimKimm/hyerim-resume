@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { skill } from '../../types/data';
 import {
   FlexBox,
@@ -29,7 +29,14 @@ const Skills = ({ skills }: skillsPropsType) => {
   const etcSkills = skills.filter((skill) => skill.category === 'Etc');
 
   return (
-    <SectionWrap d="column" j="start" a="start" g={4} ref={target}>
+    <SectionWrap
+      d="column"
+      j="start"
+      a="start"
+      g={4}
+      ref={target}
+      className={'animationBtoT'}
+    >
       <SectionTitleTypo isDark={isDark}>Skills</SectionTitleTypo>
       <FlexBox d="column" j="start" a="center" g={20} style={{ width: '100%' }}>
         <SkillsItem title="Front-end" skills={frontSkills} />

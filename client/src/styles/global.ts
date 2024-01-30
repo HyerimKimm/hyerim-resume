@@ -54,8 +54,11 @@ export const GlobalStyle = createGlobalStyle<globalStylePropsType>`
       color: ${globalTokens.Black.value};
       background-color: ${globalTokens.PrimaryLight.value};
     }
-    &.animationBtoT {
+    &.frame-in {
       animation: ${frameInBottomToTopAnimation} 1.5s;
+    }
+    &.frame-out {
+      opacity: 0;
     }
   }
   button {

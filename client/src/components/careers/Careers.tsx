@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   FlexBox,
   SectionTitleTypo,
@@ -7,6 +7,7 @@ import {
 import { useIsDarkStore } from '../../store/store';
 import { career } from '../../types/data';
 import CareerItem from './CareerItem';
+import { useInView } from '../../hooks/useInView';
 
 type careersPropsType = {
   careers: career[];
@@ -15,9 +16,17 @@ type careersPropsType = {
 const Careers = ({ careers }: careersPropsType) => {
   const isDark = useIsDarkStore((state) => state.isDark);
   const target = useRef(null);
+  const [inView] = useInView({ target: target });
 
   return (
-    <SectionWrap d="column" j="start" a="center" g={12} ref={target}>
+    <SectionWrap
+      d="column"
+      j="start"
+      a="center"
+      g={12}
+      ref={target}
+      className={inView ? 'frame-in' : 'frame-out'}
+    >
       <SectionTitleTypo isDark={isDark}>Careers</SectionTitleTypo>
       {careers.map((career, index) => (
         <CareerItem key={career.careerId} career={career} />

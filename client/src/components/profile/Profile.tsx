@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { profile, link, LinkIconURL } from '../../types/data';
 import styled from 'styled-components';
 import { BodyTextTypo, Heading4Typo } from '../../atoms/Typography.style';
@@ -25,7 +25,14 @@ const Profile = ({ profile, links }: profilePropsType) => {
 
   return (
     <>
-      <SectionWrap d="row" j="center" a="center" g={8} ref={target1}>
+      <SectionWrap
+        d="row"
+        j="center"
+        a="center"
+        g={8}
+        ref={target1}
+        className={'animationBtoT'}
+      >
         <ProfileImgBox src={profile.profileImageUrl} />
         <InfoWrap>
           <Heading4Typo isDark={isDark}>{profile.name}</Heading4Typo>
@@ -48,7 +55,14 @@ const Profile = ({ profile, links }: profilePropsType) => {
           ))}
         </InfoWrap>
       </SectionWrap>
-      <SectionWrap d="column" j="center" a="start" g={8} ref={target2}>
+      <SectionWrap
+        d="column"
+        j="center"
+        a="start"
+        g={8}
+        ref={target2}
+        className={'animationBtoT'}
+      >
         <SectionTitleTypo isDark={isDark}>Introduce</SectionTitleTypo>
         <IntroduceInfoWrap
           isDark={isDark}

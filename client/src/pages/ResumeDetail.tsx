@@ -11,7 +11,8 @@ import { hyerimAxiosResponse, getResumeDatas } from '../service/resumeApi';
 import Careers from '../components/careers/Careers';
 import Toggle from '../atoms/toggle/Toggle';
 import styled from 'styled-components';
-import useIntersectionObserver from '../hooks/useInterserctionObserver';
+import { useInView } from '../hooks/useInView';
+import { loadavg } from 'os';
 
 const initialData: data = {
   profile: {
@@ -38,11 +39,7 @@ const ResumeDetail = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const target = useRef(null);
-
   const [inView, setInView] = useState(false);
-  const [observe, unobserve] = useIntersectionObserver(() => {
-    setInView(true);
-  });
 
   // 이력서 데이터를 불러오는 함수
   const httpGetResumeDatas = async () => {
@@ -61,9 +58,25 @@ const ResumeDetail = () => {
 
   useEffect(() => {
     if (isLoading) return;
-    target.current && observe(target.current);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          console.log('Career visible');
+          setInView(true);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.6,
+      }
+    );
+
+    if (target.current) observer.observe(target.current);
+
     return () => {
-      target.current && unobserve(target.current);
+      if (target.current) observer.unobserve(target.current);
     };
   }, [isLoading]);
 
@@ -88,7 +101,7 @@ const ResumeDetail = () => {
           <Heading1Typo
             isDark={isDark}
             ref={target}
-            className={inView ? 'animationBtoT' : ''}
+            className={inView ? 'frame-in' : 'frame-out'}
           >
             {data.profile.title}
           </Heading1Typo>
