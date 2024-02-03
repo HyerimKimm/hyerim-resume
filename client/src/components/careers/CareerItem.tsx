@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { career } from '../../types/data';
 import { FlexBox, GridBox } from '../../atoms/Layout.style';
 import {
@@ -7,6 +7,7 @@ import {
   SmallTextTypo,
 } from '../../atoms/Typography.style';
 import { useIsDarkStore } from '../../store/store';
+import { useInView } from '../../hooks/useInView';
 
 type careerPropsType = {
   career: career;
@@ -14,9 +15,11 @@ type careerPropsType = {
 
 const CareerItem = ({ career }: careerPropsType) => {
   const isDark = useIsDarkStore((state) => state.isDark);
+  const target = useRef(null);
+  const [inView] = useInView({ target: target });
 
   return (
-    <GridBox rg={12}>
+    <GridBox rg={12} ref={target} className={inView ? 'frame-in' : 'frame-out'}>
       <FlexBox d="column" j="start" a="start" g={0}>
         <Heading5Typo isDark={isDark}>{career.companyName}</Heading5Typo>
         <SmallTextTypo isDark={isDark}>

@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { BodyTextTypo } from '../../atoms/Typography.style';
 import tokens from '../../styles/tokens.json';
 import SkillsItem from './SkillsItem';
+import { useInView } from '../../hooks/useInView';
 
 const globalTokens = tokens.global;
 
@@ -19,7 +20,6 @@ type skillsPropsType = {
 
 const Skills = ({ skills }: skillsPropsType) => {
   const isDark = useIsDarkStore((state) => state.isDark);
-  const target = useRef(null);
 
   const frontSkills = skills.filter((skill) => skill.category === 'Front-end');
   const backSkills = skills.filter((skill) => skill.category === 'Back-end');
@@ -28,6 +28,9 @@ const Skills = ({ skills }: skillsPropsType) => {
   );
   const etcSkills = skills.filter((skill) => skill.category === 'Etc');
 
+  const target = useRef(null);
+  const [inView] = useInView({ target: target });
+
   return (
     <SectionWrap
       d="column"
@@ -35,7 +38,7 @@ const Skills = ({ skills }: skillsPropsType) => {
       a="start"
       g={4}
       ref={target}
-      className={'animationBtoT'}
+      className={inView ? 'frame-in' : 'frame-out'}
     >
       <SectionTitleTypo isDark={isDark}>Skills</SectionTitleTypo>
       <FlexBox d="column" j="start" a="center" g={20} style={{ width: '100%' }}>

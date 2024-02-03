@@ -12,7 +12,6 @@ import Careers from '../components/careers/Careers';
 import Toggle from '../atoms/toggle/Toggle';
 import styled from 'styled-components';
 import { useInView } from '../hooks/useInView';
-import { loadavg } from 'os';
 
 const initialData: data = {
   profile: {
@@ -36,10 +35,9 @@ const ResumeDetail = () => {
   const setIsDark = useIsDarkStore((state) => state.setIsDark);
 
   const [data, setData] = useState<data>(initialData);
-  const [isLoading, setIsLoading] = useState(true);
 
   const target = useRef(null);
-  const [inView, setInView] = useState(false);
+  const [inView] = useInView({ target: target });
 
   // 이력서 데이터를 불러오는 함수
   const httpGetResumeDatas = async () => {
@@ -57,32 +55,7 @@ const ResumeDetail = () => {
   };
 
   useEffect(() => {
-    if (isLoading) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          console.log('Career visible');
-          setInView(true);
-        }
-      },
-      {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.6,
-      }
-    );
-
-    if (target.current) observer.observe(target.current);
-
-    return () => {
-      if (target.current) observer.unobserve(target.current);
-    };
-  }, [isLoading]);
-
-  useEffect(() => {
     httpGetResumeDatas();
-    setIsLoading(false);
   }, []);
 
   return (
@@ -96,21 +69,19 @@ const ResumeDetail = () => {
           }}
         />
       </IsDarkTogglePosition>
-      {isLoading ? null : (
-        <>
-          <Heading1Typo
-            isDark={isDark}
-            ref={target}
-            className={inView ? 'frame-in' : 'frame-out'}
-          >
-            {data.profile.title}
-          </Heading1Typo>
-          <Profile profile={data.profile} links={data.links} />
-          <Skills skills={data.skills} />
-          <Projects projects={data.projects} />
-          <Careers careers={data.careers} />
-        </>
-      )}
+      <>
+        <Heading1Typo
+          isDark={isDark}
+          ref={target}
+          className={inView ? 'frame-in' : 'frame-out'}
+        >
+          {data.profile.title}
+        </Heading1Typo>
+        <Profile profile={data.profile} links={data.links} />
+        <Skills skills={data.skills} />
+        <Projects projects={data.projects} />
+        <Careers careers={data.careers} />
+      </>
     </ResumeContainer>
   );
 };

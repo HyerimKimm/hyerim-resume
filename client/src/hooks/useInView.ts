@@ -11,7 +11,6 @@ export const useInView = ({ target }: useInViewPropsType) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          console.log('Career visible');
           setInView(true);
         }
       },

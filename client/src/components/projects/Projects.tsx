@@ -8,6 +8,7 @@ import {
 } from '../../atoms/Layout.style';
 import { project } from '../../types/data';
 import ProjectItem from './ProjectItem';
+import { useInView } from '../../hooks/useInView';
 
 type projectPropsType = {
   projects: project[];
@@ -15,10 +16,9 @@ type projectPropsType = {
 
 const Projects = ({ projects }: projectPropsType) => {
   const isDark = useIsDarkStore((state) => state.isDark);
-  const target = useRef(null);
 
   return (
-    <SectionWrap d="column" j="start" a="center" g={12} ref={target}>
+    <SectionWrap d="column" j="start" a="center" g={12}>
       <SectionTitleTypo isDark={isDark}>Projects</SectionTitleTypo>
       <FlexBox d="column" a="center" j="center" g={24}>
         {projects.map((project, index) => (

@@ -15,20 +15,11 @@ type careersPropsType = {
 
 const Careers = ({ careers }: careersPropsType) => {
   const isDark = useIsDarkStore((state) => state.isDark);
-  const target = useRef(null);
-  const [inView] = useInView({ target: target });
 
   return (
-    <SectionWrap
-      d="column"
-      j="start"
-      a="center"
-      g={12}
-      ref={target}
-      className={inView ? 'frame-in' : 'frame-out'}
-    >
+    <SectionWrap d="column" j="start" a="center" g={12}>
       <SectionTitleTypo isDark={isDark}>Careers</SectionTitleTypo>
-      {careers.map((career, index) => (
+      {careers.map((career) => (
         <CareerItem key={career.careerId} career={career} />
       ))}
     </SectionWrap>

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { BodyTextTypo, Heading5Typo } from '../../atoms/Typography.style';
 import tokens from '../../styles/tokens.json';
 import { skill, skillCategory } from '../../types/data';
 import { useIsDarkStore } from '../../store/store';
 import SkillsItemLi from './SkillsItemLi';
+import { useInView } from '../../hooks/useInView';
 
 const globalTokens = tokens.global;
 

@@ -10,6 +10,7 @@ import {
 } from '../../atoms/Layout.style';
 import { IconImg } from '../../atoms/Images.style';
 import tokens from '../../styles/tokens.json';
+import { useInView } from '../../hooks/useInView';
 
 const globalTokens = tokens.global;
 
@@ -22,6 +23,10 @@ const Profile = ({ profile, links }: profilePropsType) => {
   const isDark = useIsDarkStore((state) => state.isDark);
   const target1 = useRef(null);
   const target2 = useRef(null);
+  const target3 = useRef(null);
+  const [inView1] = useInView({ target: target1 });
+  const [inView2] = useInView({ target: target2 });
+  const [inView3] = useInView({ target: target3 });
 
   return (
     <>
@@ -31,10 +36,10 @@ const Profile = ({ profile, links }: profilePropsType) => {
         a="center"
         g={8}
         ref={target1}
-        className={'animationBtoT'}
+        className={inView1 ? 'frame-in' : 'frame-out'}
       >
         <ProfileImgBox src={profile.profileImageUrl} />
-        <InfoWrap>
+        <InfoWrap ref={target2} className={inView2 ? 'frame-in' : 'frame-out'}>
           <Heading4Typo isDark={isDark}>{profile.name}</Heading4Typo>
           <BodyTextTypo isDark={isDark}>🏠 {profile.address}</BodyTextTypo>
           <BodyTextTypo isDark={isDark}>📧 {profile.email}</BodyTextTypo>
@@ -60,8 +65,8 @@ const Profile = ({ profile, links }: profilePropsType) => {
         j="center"
         a="start"
         g={8}
-        ref={target2}
-        className={'animationBtoT'}
+        ref={target3}
+        className={inView3 ? 'frame-in' : 'frame-out'}
       >
         <SectionTitleTypo isDark={isDark}>Introduce</SectionTitleTypo>
         <IntroduceInfoWrap
