@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { project } from '../../types/data';
 import { FlexBox, GridBox } from '../../atoms/Layout.style';
 import {

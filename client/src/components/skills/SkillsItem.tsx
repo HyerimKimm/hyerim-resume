@@ -16,9 +16,14 @@ type skillsItemPropsType = {
 
 const SkillsItem = ({ title, skills }: skillsItemPropsType) => {
   const isDark = useIsDarkStore((state) => state.isDark);
+  const target = useRef(null);
+  const [inView] = useInView({ target: target });
 
   return (
-    <SkillsCategorySection>
+    <SkillsCategorySection
+      ref={target}
+      className={inView ? 'frame-in' : 'frame-out'}
+    >
       <SkillsCategoryTitle isDark={isDark}>{title}</SkillsCategoryTitle>
       <SkillsCategoryDatas>
         {skills.map((skill) => (

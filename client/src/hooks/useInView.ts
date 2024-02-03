@@ -17,7 +17,7 @@ export const useInView = ({ target }: useInViewPropsType) => {
       {
         root: null,
         rootMargin: '0px',
-        threshold: 0.6,
+        threshold: 1,
       }
     );
 

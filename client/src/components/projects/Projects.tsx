@@ -1,4 +1,3 @@
-import React, { useEffect, useRef } from 'react';
 import { useIsDarkStore } from '../../store/store';
 
 import {
@@ -8,7 +7,6 @@ import {
 } from '../../atoms/Layout.style';
 import { project } from '../../types/data';
 import ProjectItem from './ProjectItem';
-import { useInView } from '../../hooks/useInView';
 
 type projectPropsType = {
   projects: project[];

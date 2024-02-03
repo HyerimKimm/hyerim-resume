@@ -28,18 +28,8 @@ const Skills = ({ skills }: skillsPropsType) => {
   );
   const etcSkills = skills.filter((skill) => skill.category === 'Etc');
 
-  const target = useRef(null);
-  const [inView] = useInView({ target: target });
-
   return (
-    <SectionWrap
-      d="column"
-      j="start"
-      a="start"
-      g={4}
-      ref={target}
-      className={inView ? 'frame-in' : 'frame-out'}
-    >
+    <SectionWrap d="column" j="start" a="start" g={4}>
       <SectionTitleTypo isDark={isDark}>Skills</SectionTitleTypo>
       <FlexBox d="column" j="start" a="center" g={20} style={{ width: '100%' }}>
         <SkillsItem title="Front-end" skills={frontSkills} />
