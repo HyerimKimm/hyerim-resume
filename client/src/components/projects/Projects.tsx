@@ -7,7 +7,7 @@ import {
 } from '../../atoms/Layout.style';
 import { project } from '../../types/data';
 import ProjectItem from './ProjectItem';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { useInView } from '../../hooks/useInView';
 
 type projectPropsType = {

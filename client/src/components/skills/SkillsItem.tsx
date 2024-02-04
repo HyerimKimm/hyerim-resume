@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import styled from 'styled-components';
-import { BodyTextTypo, Heading5Typo } from '../../atoms/Typography.style';
+import { Heading5Typo } from '../../atoms/Typography.style';
 import tokens from '../../styles/tokens.json';
 import { skill, skillCategory } from '../../types/data';
 import { useIsDarkStore } from '../../store/store';

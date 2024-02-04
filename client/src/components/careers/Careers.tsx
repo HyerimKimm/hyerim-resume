@@ -1,9 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import {
-  FlexBox,
-  SectionTitleTypo,
-  SectionWrap,
-} from '../../atoms/Layout.style';
+import { useRef } from 'react';
+import { SectionTitleTypo, SectionWrap } from '../../atoms/Layout.style';
 import { useIsDarkStore } from '../../store/store';
 import { career } from '../../types/data';
 import CareerItem from './CareerItem';

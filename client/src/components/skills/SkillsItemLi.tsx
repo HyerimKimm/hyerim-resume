@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import tokens from '../../styles/tokens.json';
 import { SkillLevel, skill } from '../../types/data';

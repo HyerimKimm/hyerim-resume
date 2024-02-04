@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { skill } from '../../types/data';
 import {
   FlexBox,
@@ -6,13 +6,8 @@ import {
   SectionWrap,
 } from '../../atoms/Layout.style';
 import { useIsDarkStore } from '../../store/store';
-import styled from 'styled-components';
-import { BodyTextTypo } from '../../atoms/Typography.style';
-import tokens from '../../styles/tokens.json';
 import SkillsItem from './SkillsItem';
 import { useInView } from '../../hooks/useInView';
-
-const globalTokens = tokens.global;
 
 type skillsPropsType = {
   skills: skill[];

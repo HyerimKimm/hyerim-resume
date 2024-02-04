@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import { data } from '../types/data';
-import { Heading1Typo } from '../atoms/Typography.style';
 import Profile from '../components/profile/Profile';
 import { ResumeContainer } from '../atoms/Layout.style';
 import { useIsDarkStore } from '../store/store';
@@ -10,8 +10,6 @@ import Projects from '../components/projects/Projects';
 import { hyerimAxiosResponse, getResumeDatas } from '../service/resumeApi';
 import Careers from '../components/careers/Careers';
 import Toggle from '../atoms/toggle/Toggle';
-import styled from 'styled-components';
-import { useInView } from '../hooks/useInView';
 import Title from '../components/title/Title';
 
 const initialData: data = {

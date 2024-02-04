@@ -1,13 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { profile, link } from '../../types/data';
 import styled from 'styled-components';
 import { BodyTextTypo, Heading4Typo } from '../../atoms/Typography.style';
 import { useIsDarkStore } from '../../store/store';
-import {
-  FlexBox,
-  SectionTitleTypo,
-  SectionWrap,
-} from '../../atoms/Layout.style';
+import { FlexBox, SectionWrap } from '../../atoms/Layout.style';
 import { IconImg } from '../../atoms/Images.style';
 import tokens from '../../styles/tokens.json';
 import { useInView } from '../../hooks/useInView';
@@ -80,11 +76,6 @@ const InfoWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${globalTokens.Spacing4.value};
-`;
-
-const IntroduceInfoWrap = styled.div<{ isDark: boolean }>`
-  color: ${(props) =>
-    props.isDark ? globalTokens.White.value : globalTokens.Black.value};
 `;
 
 export default Profile;
