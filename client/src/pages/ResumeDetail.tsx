@@ -12,6 +12,7 @@ import Careers from '../components/careers/Careers';
 import Toggle from '../atoms/toggle/Toggle';
 import styled from 'styled-components';
 import { useInView } from '../hooks/useInView';
+import Title from '../components/title/Title';
 
 const initialData: data = {
   profile: {
@@ -35,12 +36,11 @@ const ResumeDetail = () => {
   const setIsDark = useIsDarkStore((state) => state.setIsDark);
 
   const [data, setData] = useState<data>(initialData);
-
-  const target = useRef(null);
-  const [inView] = useInView({ target: target });
+  const [isLoading, setIsLoading] = useState(false);
 
   // 이력서 데이터를 불러오는 함수
   const httpGetResumeDatas = async () => {
+    setIsLoading(false);
     try {
       const params = { id: id };
 
@@ -51,6 +51,7 @@ const ResumeDetail = () => {
       }
     } catch (e) {
     } finally {
+      setIsLoading(true);
     }
   };
 
@@ -60,28 +61,26 @@ const ResumeDetail = () => {
 
   return (
     <ResumeContainer>
-      <IsDarkTogglePosition>
-        <Toggle
-          isDark={isDark}
-          isSelected={isDark}
-          setIsSelected={() => {
-            setIsDark(!isDark);
-          }}
-        />
-      </IsDarkTogglePosition>
-      <>
-        <Heading1Typo
-          isDark={isDark}
-          ref={target}
-          className={inView ? 'frame-in' : 'frame-out'}
-        >
-          {data.profile.title}
-        </Heading1Typo>
-        <Profile profile={data.profile} links={data.links} />
-        <Skills skills={data.skills} />
-        <Projects projects={data.projects} />
-        <Careers careers={data.careers} />
-      </>
+      {isLoading ? (
+        <>
+          <IsDarkTogglePosition>
+            <Toggle
+              isDark={isDark}
+              isSelected={isDark}
+              setIsSelected={() => {
+                setIsDark(!isDark);
+              }}
+            />
+          </IsDarkTogglePosition>
+          <>
+            <Title title={data.profile.title} />
+            <Profile profile={data.profile} links={data.links} />
+            <Skills skills={data.skills} />
+            <Projects projects={data.projects} />
+            <Careers careers={data.careers} />
+          </>
+        </>
+      ) : null}
     </ResumeContainer>
   );
 };

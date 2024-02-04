@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import tokens from '../styles/tokens.json';
 import { Heading3Typo } from './Typography.style';
-import { frameInBottomToTopAnimation } from '../styles/animation';
 
 const globalTokens = tokens.global;
 
@@ -59,7 +58,6 @@ export const GridBox = styled.div<GridBoxType>`
 export const SectionWrap = styled.section<FlexBoxType>`
   padding: ${globalTokens.Spacing20.value};
   border-radius: ${globalTokens.RegularRadius.value};
-  border: 1px solid ${globalTokens.LightGray.value};
   display: flex;
   flex-direction: ${(props) => props.d};
   justify-content: ${(props) => props.j};

@@ -9,15 +9,13 @@ export const useInView = ({ target }: useInViewPropsType) => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.isIntersecting && setInView(true);
+        });
       },
       {
-        root: null,
-        rootMargin: '0px',
-        threshold: 1,
+        threshold: 1.0,
       }
     );
 

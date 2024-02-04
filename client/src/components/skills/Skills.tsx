@@ -19,6 +19,9 @@ type skillsPropsType = {
 };
 
 const Skills = ({ skills }: skillsPropsType) => {
+  const target = useRef(null);
+  const [inView] = useInView({ target: target });
+
   const isDark = useIsDarkStore((state) => state.isDark);
 
   const frontSkills = skills.filter((skill) => skill.category === 'Front-end');
@@ -30,7 +33,13 @@ const Skills = ({ skills }: skillsPropsType) => {
 
   return (
     <SectionWrap d="column" j="start" a="start" g={4}>
-      <SectionTitleTypo isDark={isDark}>Skills</SectionTitleTypo>
+      <SectionTitleTypo
+        isDark={isDark}
+        ref={target}
+        className={inView ? 'frame-in' : 'frame-out'}
+      >
+        Skills
+      </SectionTitleTypo>
       <FlexBox d="column" j="start" a="center" g={20} style={{ width: '100%' }}>
         <SkillsItem title="Front-end" skills={frontSkills} />
         <SkillsItem title="Back-end" skills={backSkills} />

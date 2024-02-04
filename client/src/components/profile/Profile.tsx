@@ -11,6 +11,12 @@ import {
 import { IconImg } from '../../atoms/Images.style';
 import tokens from '../../styles/tokens.json';
 import { useInView } from '../../hooks/useInView';
+import githubWhite from '../../assets/images/githubWhite.svg';
+import github from '../../assets/images/github.svg';
+import notion from '../../assets/images/notion.svg';
+import notionWhite from '../../assets/images/notionWhite.svg';
+import blog from '../../assets/images/blog.svg';
+import blogWhite from '../../assets/images/blogWhite.svg';
 
 const globalTokens = tokens.global;
 
@@ -34,7 +40,7 @@ const Profile = ({ profile, links }: profilePropsType) => {
         d="row"
         j="center"
         a="center"
-        g={8}
+        g={20}
         ref={target1}
         className={inView1 ? 'frame-in' : 'frame-out'}
       >
@@ -47,11 +53,11 @@ const Profile = ({ profile, links }: profilePropsType) => {
           {links.map((link) => (
             <FlexBox key={link.linkId} d="row" j="start" a="center" g={4}>
               {link.linkName === 'Github' ? (
-                <IconImg src={LinkIconURL['Github']} />
+                <IconImg src={isDark ? githubWhite : github} />
               ) : link.linkName === 'Notion' ? (
-                <IconImg src={LinkIconURL['Notion']} />
+                <IconImg src={isDark ? notionWhite : notion} />
               ) : (
-                <IconImg src={LinkIconURL['Blog']} />
+                <IconImg src={isDark ? blogWhite : blog} />
               )}
               <a href={link.url} target={'_blank'} rel="noopener noreferrer">
                 {link.linkName} 바로가기
@@ -80,6 +86,7 @@ const Profile = ({ profile, links }: profilePropsType) => {
 
 const ProfileImgBox = styled.img`
   width: 200px;
+  border-radius: ${globalTokens.RegularRadius.value};
 `;
 
 const InfoWrap = styled.div`

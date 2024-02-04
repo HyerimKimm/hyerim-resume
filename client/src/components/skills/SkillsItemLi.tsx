@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import tokens from '../../styles/tokens.json';
 import { SkillLevel, skill } from '../../types/data';
 import { TABLET_WIDTH } from '../../constants/constants';
+import { useInView } from '../../hooks/useInView';
 
 const globalTokens = tokens.global;
 
@@ -12,6 +13,8 @@ type skillsItemLiPropsType = {
 
 const SkillsItemLi = ({ skill }: skillsItemLiPropsType) => {
   const [isHover, setIsHover] = useState(false);
+  const target = useRef(null);
+  const [inView] = useInView({ target: target });
 
   return (
     <LiContainer
@@ -21,6 +24,8 @@ const SkillsItemLi = ({ skill }: skillsItemLiPropsType) => {
       onMouseLeave={() => {
         setIsHover(false);
       }}
+      ref={target}
+      className={inView ? 'frame-in' : 'frame-out'}
     >
       {skill.skillName}
       {SkillLevel[skill.level]}

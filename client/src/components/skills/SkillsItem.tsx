@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { BodyTextTypo, Heading5Typo } from '../../atoms/Typography.style';
 import tokens from '../../styles/tokens.json';
@@ -36,7 +36,6 @@ const SkillsItem = ({ title, skills }: skillsItemPropsType) => {
 
 const SkillsCategorySection = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;

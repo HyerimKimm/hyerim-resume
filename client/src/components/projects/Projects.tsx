@@ -7,6 +7,8 @@ import {
 } from '../../atoms/Layout.style';
 import { project } from '../../types/data';
 import ProjectItem from './ProjectItem';
+import { useEffect, useRef } from 'react';
+import { useInView } from '../../hooks/useInView';
 
 type projectPropsType = {
   projects: project[];
@@ -14,10 +16,22 @@ type projectPropsType = {
 
 const Projects = ({ projects }: projectPropsType) => {
   const isDark = useIsDarkStore((state) => state.isDark);
+  const target = useRef(null);
+  const [inView] = useInView({ target: target });
+
+  useEffect(() => {
+    inView && console.log('projects is in view');
+  }, [inView]);
 
   return (
     <SectionWrap d="column" j="start" a="center" g={12}>
-      <SectionTitleTypo isDark={isDark}>Projects</SectionTitleTypo>
+      <SectionTitleTypo
+        isDark={isDark}
+        ref={target}
+        className={inView ? 'frame-in' : 'frame-out'}
+      >
+        Projects
+      </SectionTitleTypo>
       <FlexBox d="column" a="center" j="center" g={24}>
         {projects.map((project, index) => (
           <ProjectItem key={index} project={project} />
