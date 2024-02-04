@@ -18,16 +18,16 @@ const Introduce = ({ introduce }: introducePropsType) => {
 
   return (
     <SectionWrap
-      d="column"
-      j="center"
-      a="start"
-      g={8}
+      $d="column"
+      $j="center"
+      $a="start"
+      $g={8}
       ref={target}
       className={inView ? 'frame-in' : 'frame-out'}
     >
-      <SectionTitleTypo isDark={isDark}>Introduce</SectionTitleTypo>
+      <SectionTitleTypo $isDark={isDark}>Introduce</SectionTitleTypo>
       <IntroduceInfoWrap
-        isDark={isDark}
+        $isDark={isDark}
         dangerouslySetInnerHTML={{ __html: introduce }}
       />
     </SectionWrap>
@@ -36,7 +36,7 @@ const Introduce = ({ introduce }: introducePropsType) => {
 
 export default Introduce;
 
-const IntroduceInfoWrap = styled.div<{ isDark: boolean }>`
+const IntroduceInfoWrap = styled.div<{ $isDark: boolean }>`
   color: ${(props) =>
-    props.isDark ? globalTokens.White.value : globalTokens.Black.value};
+    props.$isDark ? globalTokens.White.value : globalTokens.Black.value};
 `;

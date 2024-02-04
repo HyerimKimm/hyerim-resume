@@ -30,7 +30,7 @@ const SkillsItemLi = ({ skill }: skillsItemLiPropsType) => {
       {skill.skillName}
       {SkillLevel[skill.level]}
       {skill.description && skill.description !== '' && (
-        <LiDescription isHover={isHover}>{skill.description}</LiDescription>
+        <LiDescription $isHover={isHover}>{skill.description}</LiDescription>
       )}
     </LiContainer>
   );
@@ -51,11 +51,11 @@ const LiContainer = styled.li`
   }
 `;
 
-const LiDescription = styled.div<{ isHover: boolean }>`
+const LiDescription = styled.div<{ $isHover: boolean }>`
   @media screen and (max-width: ${TABLET_WIDTH}) {
     display: none;
   }
-  opacity: ${(props) => (props.isHover ? 1 : 0)};
+  opacity: ${(props) => (props.$isHover ? 1 : 0)};
   background-color: ${globalTokens.Primary.value};
   color: ${globalTokens.White.value};
   font-size: ${globalTokens.SmallTextSize.value};

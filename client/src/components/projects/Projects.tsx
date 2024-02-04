@@ -19,20 +19,16 @@ const Projects = ({ projects }: projectPropsType) => {
   const target = useRef(null);
   const [inView] = useInView({ target: target });
 
-  useEffect(() => {
-    inView && console.log('projects is in view');
-  }, [inView]);
-
   return (
-    <SectionWrap d="column" j="start" a="center" g={12}>
+    <SectionWrap $d="column" $j="start" $a="center" $g={12}>
       <SectionTitleTypo
-        isDark={isDark}
+        $isDark={isDark}
         ref={target}
         className={inView ? 'frame-in' : 'frame-out'}
       >
         Projects
       </SectionTitleTypo>
-      <FlexBox d="column" a="center" j="center" g={24}>
+      <FlexBox $d="column" $a="center" $j="center" $g={24}>
         {projects.map((project, index) => (
           <ProjectItem key={index} project={project} />
         ))}

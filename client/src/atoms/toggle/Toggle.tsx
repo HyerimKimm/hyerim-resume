@@ -14,18 +14,18 @@ export type togglePropsType = {
 const Toggle = ({ isDark, isSelected, setIsSelected }: togglePropsType) => {
   return (
     <ToggleContainer
-      isDark={isDark}
-      isSelected={isSelected}
+      $isDark={isDark}
+      $isSelected={isSelected}
       onClick={() => {
         setIsSelected();
       }}
     >
-      <ToggleCircle isDark={isDark} isSelected={isSelected} />
+      <ToggleCircle $isDark={isDark} $isSelected={isSelected} />
     </ToggleContainer>
   );
 };
 
-const ToggleContainer = styled(Button)<{ isSelected: boolean }>`
+const ToggleContainer = styled(Button)<{ $isSelected: boolean }>`
   width: 50px;
   height: 28px;
   position: relative;
@@ -33,19 +33,19 @@ const ToggleContainer = styled(Button)<{ isSelected: boolean }>`
   left: 0;
   border-radius: ${globalTokens.RoundRadius.value};
   background-color: ${(props) =>
-    props.isSelected
+    props.$isSelected
       ? globalTokens.Primary.value
       : globalTokens.LightGray.value};
 `;
 
-const ToggleCircle = styled.div<{ isDark: boolean; isSelected: boolean }>`
+const ToggleCircle = styled.div<{ $isDark: boolean; $isSelected: boolean }>`
   background-color: ${(props) =>
-    props.isDark ? globalTokens.Black.value : globalTokens.White.value};
+    props.$isDark ? globalTokens.Black.value : globalTokens.White.value};
   width: 22px;
   height: 22px;
   position: absolute;
   top: 3px;
-  left: ${(props) => (props.isSelected ? '25px' : '3px')};
+  left: ${(props) => (props.$isSelected ? '25px' : '3px')};
   border-radius: ${globalTokens.CircleRadius.value};
 `;
 

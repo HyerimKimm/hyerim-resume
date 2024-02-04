@@ -36,21 +36,21 @@ const Profile = ({ profile, links }: profilePropsType) => {
   return (
     <>
       <SectionWrap
-        d="row"
-        j="center"
-        a="center"
-        g={20}
+        $d="row"
+        $j="center"
+        $a="center"
+        $g={20}
         ref={target1}
         className={inView1 ? 'frame-in' : 'frame-out'}
       >
         <ProfileImgBox src={profile.profileImageUrl} />
         <InfoWrap ref={target2} className={inView2 ? 'frame-in' : 'frame-out'}>
-          <Heading4Typo isDark={isDark}>{profile.name}</Heading4Typo>
-          <BodyTextTypo isDark={isDark}>🏠 {profile.address}</BodyTextTypo>
-          <BodyTextTypo isDark={isDark}>📧 {profile.email}</BodyTextTypo>
-          <BodyTextTypo isDark={isDark}>📞 {profile.phoneNumber}</BodyTextTypo>
+          <Heading4Typo $isDark={isDark}>{profile.name}</Heading4Typo>
+          <BodyTextTypo $isDark={isDark}>🏠 {profile.address}</BodyTextTypo>
+          <BodyTextTypo $isDark={isDark}>📧 {profile.email}</BodyTextTypo>
+          <BodyTextTypo $isDark={isDark}>📞 {profile.phoneNumber}</BodyTextTypo>
           {links.map((link) => (
-            <FlexBox key={link.linkId} d="row" j="start" a="center" g={4}>
+            <FlexBox key={link.linkId} $d="row" $j="start" $a="center" $g={4}>
               {link.linkName === 'Github' ? (
                 <IconImg src={isDark ? githubWhite : github} />
               ) : link.linkName === 'Notion' ? (

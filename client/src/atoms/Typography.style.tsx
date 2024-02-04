@@ -3,7 +3,7 @@ import tokens from '../styles/tokens.json';
 
 const globalTokens = tokens.global;
 
-const Typo = styled.div<{ isDark: boolean }>``;
+const Typo = styled.div<{ $isDark: boolean }>``;
 
 export const Heading1Typo = styled(Typo)`
   font-family: 'OrbitRegular';

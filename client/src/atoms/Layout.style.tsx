@@ -4,18 +4,17 @@ import { Heading3Typo } from './Typography.style';
 
 const globalTokens = tokens.global;
 
-export const AppContainer = styled.div<{ isDark: boolean }>`
+export const AppContainer = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: ${(props) =>
-    props.isDark ? globalTokens.Black.value : globalTokens.White.value};
   overflow: hidden;
 `;
 
 export const ResumeContainer = styled.main`
   width: 100%;
   height: 100%;
-  padding: ${globalTokens.Spacing20.value};
+  padding: ${globalTokens.Spacing20.value} ${globalTokens.Spacing20.value}
+    ${globalTokens.Spacing40.value} ${globalTokens.Spacing20.value};
   gap: ${globalTokens.Spacing20.value};
   overflow-y: auto;
   display: flex;
@@ -24,45 +23,45 @@ export const ResumeContainer = styled.main`
 `;
 
 type FlexBoxType = {
-  d: 'row' | 'column';
-  j:
+  $d: 'row' | 'column';
+  $j:
     | 'start'
     | 'center'
     | 'end'
     | 'space-between'
     | 'space-around'
     | 'space-evenly';
-  a: 'start' | 'center' | 'stretch' | 'end';
-  g: number;
+  $a: 'start' | 'center' | 'stretch' | 'end';
+  $g: number;
 };
 
 export const FlexBox = styled.div<FlexBoxType>`
   display: flex;
-  flex-direction: ${(props) => props.d};
-  justify-content: ${(props) => props.j};
-  align-items: ${(props) => props.a};
-  gap: ${(props) => props.g}px;
+  flex-direction: ${(props) => props.$d};
+  justify-content: ${(props) => props.$j};
+  align-items: ${(props) => props.$a};
+  gap: ${(props) => props.$g}px;
 `;
 
 type GridBoxType = {
-  rg: number;
+  $rg: number;
 };
 
 export const GridBox = styled.div<GridBoxType>`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 3fr;
-  gap: ${(props) => props.rg}px;
+  gap: ${(props) => props.$rg}px;
 `;
 
 export const SectionWrap = styled.section<FlexBoxType>`
   padding: ${globalTokens.Spacing20.value};
   border-radius: ${globalTokens.RegularRadius.value};
   display: flex;
-  flex-direction: ${(props) => props.d};
-  justify-content: ${(props) => props.j};
-  align-items: ${(props) => props.a};
-  gap: ${(props) => props.g}px;
+  flex-direction: ${(props) => props.$d};
+  justify-content: ${(props) => props.$j};
+  align-items: ${(props) => props.$a};
+  gap: ${(props) => props.$g}px;
   width: 100%;
   max-width: 900px;
 `;

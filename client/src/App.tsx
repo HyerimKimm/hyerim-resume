@@ -10,8 +10,8 @@ function App() {
 
   return (
     <>
-      <GlobalStyle isDark={isDark} />
-      <AppContainer isDark={isDark}>
+      <GlobalStyle $isDark={isDark} />
+      <AppContainer>
         <Router>
           <Routes>
             <Route path="/resume/:id" element={<ResumeDetail />} />

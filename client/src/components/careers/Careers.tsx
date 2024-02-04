@@ -19,9 +19,9 @@ const Careers = ({ careers }: careersPropsType) => {
   const [inView] = useInView({ target: target });
 
   return (
-    <SectionWrap d="column" j="start" a="center" g={12}>
+    <SectionWrap $d="column" $j="start" $a="center" $g={12}>
       <SectionTitleTypo
-        isDark={isDark}
+        $isDark={isDark}
         ref={target}
         className={inView ? 'frame-in' : 'frame-out'}
       >

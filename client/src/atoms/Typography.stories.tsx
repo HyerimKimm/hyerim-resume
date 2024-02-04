@@ -22,12 +22,12 @@ const Typography = ({ isDark }: TypographyPropsType) => {
         padding: 0,
       }}
     >
-      <Heading1Typo isDark={isDark}>Heading1 Typo 입니다.</Heading1Typo>
-      <Heading2Typo isDark={isDark}>Heading2 Typo 입니다.</Heading2Typo>
-      <Heading3Typo isDark={isDark}>Heading3 Typo 입니다.</Heading3Typo>
-      <Heading4Typo isDark={isDark}>Heading4 Typo 입니다.</Heading4Typo>
-      <BodyTextTypo isDark={isDark}>BodyText Typo 입니다.</BodyTextTypo>
-      <SmallTextTypo isDark={isDark}>SmallText Typo 입니다.</SmallTextTypo>
+      <Heading1Typo $isDark={isDark}>Heading1 Typo 입니다.</Heading1Typo>
+      <Heading2Typo $isDark={isDark}>Heading2 Typo 입니다.</Heading2Typo>
+      <Heading3Typo $isDark={isDark}>Heading3 Typo 입니다.</Heading3Typo>
+      <Heading4Typo $isDark={isDark}>Heading4 Typo 입니다.</Heading4Typo>
+      <BodyTextTypo $isDark={isDark}>BodyText Typo 입니다.</BodyTextTypo>
+      <SmallTextTypo $isDark={isDark}>SmallText Typo 입니다.</SmallTextTypo>
     </div>
   );
 };

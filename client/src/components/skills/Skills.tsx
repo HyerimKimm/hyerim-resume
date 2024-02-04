@@ -32,15 +32,21 @@ const Skills = ({ skills }: skillsPropsType) => {
   const etcSkills = skills.filter((skill) => skill.category === 'Etc');
 
   return (
-    <SectionWrap d="column" j="start" a="start" g={4}>
+    <SectionWrap $d="column" $j="start" $a="start" $g={4}>
       <SectionTitleTypo
-        isDark={isDark}
+        $isDark={isDark}
         ref={target}
         className={inView ? 'frame-in' : 'frame-out'}
       >
         Skills
       </SectionTitleTypo>
-      <FlexBox d="column" j="start" a="center" g={20} style={{ width: '100%' }}>
+      <FlexBox
+        $d="column"
+        $j="start"
+        $a="center"
+        $g={20}
+        style={{ width: '100%' }}
+      >
         <SkillsItem title="Front-end" skills={frontSkills} />
         <SkillsItem title="Back-end" skills={backSkills} />
         <SkillsItem title="Database" skills={databaseSkills} />

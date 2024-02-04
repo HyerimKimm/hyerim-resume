@@ -24,7 +24,7 @@ const SkillsItem = ({ title, skills }: skillsItemPropsType) => {
       ref={target}
       className={inView ? 'frame-in' : 'frame-out'}
     >
-      <SkillsCategoryTitle isDark={isDark}>{title}</SkillsCategoryTitle>
+      <SkillsCategoryTitle $isDark={isDark}>{title}</SkillsCategoryTitle>
       <SkillsCategoryDatas>
         {skills.map((skill) => (
           <SkillsItemLi key={skill.idSkills} skill={skill} />

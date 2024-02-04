@@ -19,10 +19,14 @@ const ProjectItem = ({ project }: projectItemPropsType) => {
   const [inView] = useInView({ target: target });
 
   return (
-    <GridBox rg={12} ref={target} className={inView ? 'frame-in' : 'frame-out'}>
-      <FlexBox d="column" j="start" a="start" g={0}>
-        <Heading5Typo isDark={isDark}>{project.projectName}</Heading5Typo>
-        <SmallTextTypo isDark={isDark}>
+    <GridBox
+      $rg={12}
+      ref={target}
+      className={inView ? 'frame-in' : 'frame-out'}
+    >
+      <FlexBox $d="column" $j="start" $a="start" $g={0}>
+        <Heading5Typo $isDark={isDark}>{project.projectName}</Heading5Typo>
+        <SmallTextTypo $isDark={isDark}>
           {project.startDate} - {project.endDate}
         </SmallTextTypo>
         {project.deployLink && (
@@ -31,7 +35,7 @@ const ProjectItem = ({ project }: projectItemPropsType) => {
             target={'_blank'}
             rel="noopener noreferrer"
           >
-            <SmallTextTypo isDark={isDark}>👉🏻 배포링크 바로가기</SmallTextTypo>
+            <SmallTextTypo $isDark={isDark}>👉🏻 배포링크 바로가기</SmallTextTypo>
           </a>
         )}
         {project.repositoryLink && (
@@ -40,23 +44,23 @@ const ProjectItem = ({ project }: projectItemPropsType) => {
             target={'_blank'}
             rel="noopener noreferrer"
           >
-            <SmallTextTypo isDark={isDark}>
+            <SmallTextTypo $isDark={isDark}>
               👉🏻 리포지토리 바로가기
             </SmallTextTypo>
           </a>
         )}
       </FlexBox>
-      <FlexBox d="column" j="start" a="start" g={12}>
-        <FlexBox d="column" j="start" a="start" g={0}>
-          <BodyTextTypo isDark={isDark} style={{ fontWeight: 'bold' }}>
+      <FlexBox $d="column" $j="start" $a="start" $g={12}>
+        <FlexBox $d="column" $j="start" $a="start" $g={0}>
+          <BodyTextTypo $isDark={isDark} style={{ fontWeight: 'bold' }}>
             프로젝트 설명
           </BodyTextTypo>
           {project.description && (
             <div dangerouslySetInnerHTML={{ __html: project.description }} />
           )}
         </FlexBox>
-        <FlexBox d="column" j="start" a="start" g={0}>
-          <BodyTextTypo isDark={isDark} style={{ fontWeight: 'bold' }}>
+        <FlexBox $d="column" $j="start" $a="start" $g={0}>
+          <BodyTextTypo $isDark={isDark} style={{ fontWeight: 'bold' }}>
             담당 업무
           </BodyTextTypo>
           {project.responsibilities && (

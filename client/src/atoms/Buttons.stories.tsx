@@ -16,9 +16,9 @@ const Buttons = ({ isDark }: ButtonsPropsType) => {
         gap: '5px',
       }}
     >
-      <Button isDark={isDark}>Button</Button>
-      <FillButton isDark={isDark}>Fill Button</FillButton>
-      <BorderButton isDark={isDark}>Border Button</BorderButton>
+      <Button $isDark={isDark}>Button</Button>
+      <FillButton $isDark={isDark}>Fill Button</FillButton>
+      <BorderButton $isDark={isDark}>Border Button</BorderButton>
     </div>
   );
 };

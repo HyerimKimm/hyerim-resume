@@ -14,7 +14,7 @@ const Title = ({ title }: titlePropsType) => {
 
   return (
     <Heading1Typo
-      isDark={isDark}
+      $isDark={isDark}
       ref={target}
       className={inView ? 'frame-in' : 'frame-out'}
     >

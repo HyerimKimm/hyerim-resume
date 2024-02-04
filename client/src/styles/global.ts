@@ -9,7 +9,7 @@ import { frameInBottomToTopAnimation } from './animation';
 const globalTokens = tokens.global;
 
 type globalStylePropsType = {
-  isDark: boolean;
+  $isDark: boolean;
 };
 
 export const GlobalStyle = createGlobalStyle<globalStylePropsType>`
@@ -49,7 +49,7 @@ export const GlobalStyle = createGlobalStyle<globalStylePropsType>`
     outline: 0;
     border: none;
     color: ${(props) =>
-      props.isDark ? globalTokens.White.value : globalTokens.Black.value};
+      props.$isDark ? globalTokens.White.value : globalTokens.Black.value};
     & ::selection {
       color: ${globalTokens.Black.value};
       background-color: ${globalTokens.PrimaryLight.value};
@@ -60,6 +60,10 @@ export const GlobalStyle = createGlobalStyle<globalStylePropsType>`
     &.frame-out {
       opacity: 0;
     }
+  }
+  body {
+    background-color: ${(props) =>
+      props.$isDark ? globalTokens.Black.value : globalTokens.White.value};
   }
   button {
     border-style: none;
