@@ -15,7 +15,7 @@ export const useInView = ({ target }: useInViewPropsType) => {
         });
       },
       {
-        threshold: 1.0,
+        threshold: 0.8,
       }
     );
 

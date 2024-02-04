@@ -1,10 +1,3 @@
-export const LinkIconURL = {
-  Github: 'https://www.svgrepo.com/show/361181/github.svg',
-  Notion:
-    'https://cdn.icon-icons.com/icons2/2389/PNG/512/notion_logo_icon_145025.png',
-  Blog: 'https://uxwing.com/wp-content/themes/uxwing/download/communication-chat-call/comment-blog-icon.png',
-};
-
 export enum SkillLevel {
   '🥇' = 1,
   '🥈' = 2,

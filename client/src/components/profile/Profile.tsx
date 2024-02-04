@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { profile, link, LinkIconURL } from '../../types/data';
+import { profile, link } from '../../types/data';
 import styled from 'styled-components';
 import { BodyTextTypo, Heading4Typo } from '../../atoms/Typography.style';
 import { useIsDarkStore } from '../../store/store';
@@ -17,6 +17,7 @@ import notion from '../../assets/images/notion.svg';
 import notionWhite from '../../assets/images/notionWhite.svg';
 import blog from '../../assets/images/blog.svg';
 import blogWhite from '../../assets/images/blogWhite.svg';
+import Introduce from './Introduce';
 
 const globalTokens = tokens.global;
 
@@ -29,10 +30,8 @@ const Profile = ({ profile, links }: profilePropsType) => {
   const isDark = useIsDarkStore((state) => state.isDark);
   const target1 = useRef(null);
   const target2 = useRef(null);
-  const target3 = useRef(null);
   const [inView1] = useInView({ target: target1 });
   const [inView2] = useInView({ target: target2 });
-  const [inView3] = useInView({ target: target3 });
 
   return (
     <>
@@ -66,20 +65,7 @@ const Profile = ({ profile, links }: profilePropsType) => {
           ))}
         </InfoWrap>
       </SectionWrap>
-      <SectionWrap
-        d="column"
-        j="center"
-        a="start"
-        g={8}
-        ref={target3}
-        className={inView3 ? 'frame-in' : 'frame-out'}
-      >
-        <SectionTitleTypo isDark={isDark}>Introduce</SectionTitleTypo>
-        <IntroduceInfoWrap
-          isDark={isDark}
-          dangerouslySetInnerHTML={{ __html: profile.introduce }}
-        />
-      </SectionWrap>
+      <Introduce introduce={profile.introduce} />
     </>
   );
 };
