@@ -62,6 +62,7 @@ export const GlobalStyle = createGlobalStyle<globalStylePropsType>`
     }
   }
   body {
+    width: 100vw;
     background-color: ${(props) =>
       props.$isDark ? globalTokens.Black.value : globalTokens.White.value};
   }
