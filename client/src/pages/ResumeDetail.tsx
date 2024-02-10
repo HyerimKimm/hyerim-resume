@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import { data } from '../types/data';
@@ -7,10 +6,11 @@ import { ResumeContainer } from '../atoms/Layout.style';
 import { useIsDarkStore } from '../store/store';
 import Skills from '../components/skills/Skills';
 import Projects from '../components/projects/Projects';
-import { hyerimAxiosResponse, getResumeDatas } from '../service/resumeApi';
+import { getResumeDatas } from '../service/resumeApi';
 import Careers from '../components/careers/Careers';
 import Toggle from '../atoms/toggle/Toggle';
 import Title from '../components/title/Title';
+import { useQuery } from '@tanstack/react-query';
 
 const initialData: data = {
   profile: {
@@ -33,52 +33,40 @@ const ResumeDetail = () => {
   const isDark = useIsDarkStore((state) => state.isDark);
   const setIsDark = useIsDarkStore((state) => state.setIsDark);
 
-  const [data, setData] = useState<data>(initialData);
-  const [isLoading, setIsLoading] = useState(false);
+  const {
+    isLoading,
+    error,
+    data = initialData,
+  } = useQuery<data>({
+    queryKey: ['resume'],
+    queryFn: () => getResumeDatas({ id: id }).then((res) => res.result),
+    staleTime: 1000 * 60 * 10,
+    gcTime: 1000 * 60 * 30,
+  });
 
-  // 이력서 데이터를 불러오는 함수
-  const httpGetResumeDatas = async () => {
-    setIsLoading(false);
-    try {
-      const params = { id: id };
-
-      const res: hyerimAxiosResponse = await getResumeDatas(params);
-
-      if (res.isSuccess) {
-        setData(res.result);
-      }
-    } catch (e) {
-    } finally {
-      setIsLoading(true);
-    }
-  };
-
-  useEffect(() => {
-    httpGetResumeDatas();
-  }, []);
+  if (isLoading) return <div></div>;
+  if (error) return <div></div>;
 
   return (
     <ResumeContainer>
-      {isLoading ? (
+      <>
+        <IsDarkTogglePosition>
+          <Toggle
+            isDark={isDark}
+            isSelected={isDark}
+            setIsSelected={() => {
+              setIsDark(!isDark);
+            }}
+          />
+        </IsDarkTogglePosition>
         <>
-          <IsDarkTogglePosition>
-            <Toggle
-              isDark={isDark}
-              isSelected={isDark}
-              setIsSelected={() => {
-                setIsDark(!isDark);
-              }}
-            />
-          </IsDarkTogglePosition>
-          <>
-            <Title title={data.profile.title} />
-            <Profile profile={data.profile} links={data.links} />
-            <Skills skills={data.skills} />
-            <Projects projects={data.projects} />
-            <Careers careers={data.careers} />
-          </>
+          <Title title={data.profile.title} />
+          <Profile profile={data.profile} links={data.links} />
+          <Skills skills={data.skills} />
+          <Projects projects={data.projects} />
+          <Careers careers={data.careers} />
         </>
-      ) : null}
+      </>
     </ResumeContainer>
   );
 };
