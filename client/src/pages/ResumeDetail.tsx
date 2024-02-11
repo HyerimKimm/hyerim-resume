@@ -40,8 +40,8 @@ const ResumeDetail = () => {
   } = useQuery<data>({
     queryKey: ['resume'],
     queryFn: () => getResumeDatas({ id: id }).then((res) => res.result),
-    staleTime: 1000 * 60 * 10,
-    gcTime: 1000 * 60 * 30,
+    staleTime: 1000 * 60 * 10, // 10분
+    gcTime: 1000 * 60 * 30, // 30분
   });
 
   if (isLoading) return <div></div>;

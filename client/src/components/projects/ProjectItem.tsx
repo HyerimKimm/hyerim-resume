@@ -8,6 +8,7 @@ import {
 } from '../../atoms/Typography.style';
 import { useIsDarkStore } from '../../store/store';
 import { useInView } from '../../hooks/useInView';
+import dayjs from 'dayjs';
 
 type projectItemPropsType = {
   project: project;
@@ -27,7 +28,10 @@ const ProjectItem = ({ project }: projectItemPropsType) => {
       <FlexBox $d="column" $j="start" $a="start" $g={0}>
         <Heading5Typo $isDark={isDark}>{project.projectName}</Heading5Typo>
         <SmallTextTypo $isDark={isDark}>
-          {project.startDate} - {project.endDate}
+          {dayjs(project.startDate, 'YYYYMM').format('YYYY.MM')} -{' '}
+          {project.endDate.length === 6
+            ? dayjs(project.endDate, 'YYYYMM').format('YYYY.MM')
+            : project.endDate}
         </SmallTextTypo>
         {project.deployLink && (
           <a
