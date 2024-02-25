@@ -10,7 +10,6 @@ exports.greeting = async function (req, res) {
 // resumeId를 경로 변수로 받아서 이력서 정보를 조회 (이름, 주소, 휴대폰번호, 이메일, 프로필사진, 이력서제목, 짧은 자기소개)
 exports.readResumeInfoByResumeId = async function (req, res) {
   const connection = await pool.getConnection(async (conn) => conn);
-
   try {
     logger.info("readResumeInfoByResumeId 실행됨");
     let resData = {};
@@ -31,6 +30,18 @@ exports.readResumeInfoByResumeId = async function (req, res) {
       connection,
       resumeId
     );
+    const [experiences] = await indexDao.selectExperiencesByResumeId(
+      connection,
+      resumeId
+    );
+    const [educations] = await indexDao.selectEducationsByResumeId(
+      connection,
+      resumeId
+    );
+    const [certificates] = await indexDao.selectCertificatesByResumeId(
+      connection,
+      resumeId
+    );
 
     resData = {
       profile: { ...profile[0] },
@@ -38,6 +49,9 @@ exports.readResumeInfoByResumeId = async function (req, res) {
       skills: [...skills],
       projects: [...projects],
       careers: [...careers],
+      experiences: [...experiences],
+      educations: [...educations],
+      certificates: [...certificates],
     };
 
     return res.send({

@@ -11,7 +11,7 @@ exports.selectUserByResumeId = async function (connection, resumeId) {
 };
 
 exports.selectLinksByResumeId = async function (connection, resumeId) {
-  const selectLinksByResumeIdQuery = `SELECT linkId, linkName, url FROM Links WHERE resumeId = ? ORDER BY orderNum ASC`;
+  const selectLinksByResumeIdQuery = `SELECT linkId, linkName, url, orderNum FROM Links WHERE resumeId = ? ORDER BY orderNum ASC`;
 
   const params = [resumeId];
 
@@ -21,7 +21,7 @@ exports.selectLinksByResumeId = async function (connection, resumeId) {
 };
 
 exports.selectSkillsByResumeId = async function (connection, resumeId) {
-  const selectSkillsByResumeIdQuery = `SELECT idSkills, category, skillName, level, description FROM Skills WHERE resumeId = ? ORDER BY orderNum ASC`;
+  const selectSkillsByResumeIdQuery = `SELECT idSkills, category, skillName, level, description, orderNum FROM Skills WHERE resumeId = ? ORDER BY orderNum ASC`;
 
   const params = [resumeId];
 
@@ -31,7 +31,7 @@ exports.selectSkillsByResumeId = async function (connection, resumeId) {
 };
 
 exports.selectProjectsByResumeId = async function (connection, resumeId) {
-  const selectProjectByResumeIdQuery = `SELECT projectId, projectName, startDate, endDate, orderNum, deployLink, repositoryLink, links, staff, description, responsibilities, results FROM Projects WHERE resumeId = ? ORDER BY orderNum ASC`;
+  const selectProjectByResumeIdQuery = `SELECT projectId, projectName, startDate, endDate, deployLink, repositoryLink, links, staff, description, responsibilities, results, orderNum FROM Projects WHERE resumeId = ? ORDER BY orderNum ASC`;
 
   const params = [resumeId];
 
@@ -46,6 +46,36 @@ exports.selectCareersByResumeId = async function (connection, resumeId) {
   const params = [resumeId];
 
   const rows = await connection.query(selectCareersByResumeIdQuery, params);
+
+  return rows;
+};
+
+exports.selectExperiencesByResumeId = async function (connection, resumeId) {
+  const selectExperiencesByResumeIdQuery = `SELECT experienceId, title, startDate, endDate, place, description, orderNum FROM Experiences WHERE resumeId = ? ORDER BY orderNum ASC`;
+
+  const params = [resumeId];
+
+  const rows = await connection.query(selectExperiencesByResumeIdQuery, params);
+
+  return rows;
+};
+
+exports.selectEducationsByResumeId = async function (connection, resumeId) {
+  const selectEducationsByResumeIdQuery = `SELECT idEducations AS educationId, title, startDate, endDate, description, orderNum FROM Educations WHERE resumeId=? ORDER BY orderNum ASC`;
+
+  const params = [resumeId];
+
+  const rows = await connection.query(selectEducationsByResumeIdQuery, params);
+
+  return rows;
+};
+
+exports.selectCertificatesByResumeId = async function (connection, resumeId) {
+  const selectCertificateByResumeIdQuery = `SELECT certificateId, title, issueDate, fileUrl, orderNum FROM Certificates WHERE resumeId=? ORDER BY orderNum ASC`;
+
+  const params = [resumeId];
+
+  const rows = await connection.query(selectCertificateByResumeIdQuery, params);
 
   return rows;
 };

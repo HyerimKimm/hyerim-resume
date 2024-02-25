@@ -12,6 +12,9 @@ export type data = {
   skills: skill[];
   projects: project[];
   careers: career[];
+  experiences: experience[];
+  educations: education[];
+  certificates: certificate[];
 };
 
 export type profile = {
@@ -28,6 +31,7 @@ export type link = {
   linkId: number;
   linkName: string;
   url: string;
+  orderNum: number;
 };
 
 export type skill = {
@@ -36,6 +40,7 @@ export type skill = {
   skillName: string;
   level: SkillLevel;
   description: string;
+  orderNum: number;
 };
 
 export type project = {
@@ -43,7 +48,6 @@ export type project = {
   projectName: string;
   startDate: string;
   endDate: string;
-  orderNum: number;
   deployLink: string;
   repositoryLink: string;
   links: string;
@@ -51,6 +55,7 @@ export type project = {
   description: string;
   responsibilities: string;
   results: string;
+  orderNum: number;
 };
 
 export type career = {
@@ -61,5 +66,32 @@ export type career = {
   departmentName: string;
   responsibilities: string;
   results: string;
+  orderNum: number;
+};
+
+export type experience = {
+  experienceId: number;
+  title: string;
+  startDate: string;
+  endDate: string;
+  place: string;
+  description: string;
+  orderNum: number;
+};
+
+export type education = {
+  educationId: number;
+  title: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+  orderNum: number;
+};
+
+export type certificate = {
+  certificateId: number;
+  title: string;
+  issueDate: string;
+  fileUrl: string | null;
   orderNum: number;
 };

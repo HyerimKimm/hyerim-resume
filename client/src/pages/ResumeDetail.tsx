@@ -1,16 +1,17 @@
-import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import { data } from '../types/data';
 import Profile from '../components/profile/Profile';
 import { ResumeContainer } from '../atoms/Layout.style';
-import { useIsDarkStore } from '../store/store';
 import Skills from '../components/skills/Skills';
 import Projects from '../components/projects/Projects';
 import { getResumeDatas } from '../service/resumeApi';
 import Careers from '../components/careers/Careers';
-import Toggle from '../atoms/toggle/Toggle';
 import Title from '../components/title/Title';
 import { useQuery } from '@tanstack/react-query';
+import ToggleHeader from '../components/headers/ToggleHeader';
+import Experiences from '../components/experiences/Experiences';
+import Educations from '../components/educations/Educations';
+import Certificates from '../components/certificates/Certificates';
 
 const initialData: data = {
   profile: {
@@ -26,12 +27,13 @@ const initialData: data = {
   skills: [],
   projects: [],
   careers: [],
+  experiences: [],
+  educations: [],
+  certificates: [],
 };
 
 const ResumeDetail = () => {
   const { id } = useParams();
-  const isDark = useIsDarkStore((state) => state.isDark);
-  const setIsDark = useIsDarkStore((state) => state.setIsDark);
 
   const {
     isLoading,
@@ -50,32 +52,20 @@ const ResumeDetail = () => {
   return (
     <ResumeContainer>
       <>
-        <IsDarkTogglePosition>
-          <Toggle
-            isDark={isDark}
-            isSelected={isDark}
-            setIsSelected={() => {
-              setIsDark(!isDark);
-            }}
-          />
-        </IsDarkTogglePosition>
+        <ToggleHeader />
         <>
           <Title title={data.profile.title} />
           <Profile profile={data.profile} links={data.links} />
           <Skills skills={data.skills} />
           <Projects projects={data.projects} />
           <Careers careers={data.careers} />
+          <Experiences experiences={data.experiences} />
+          <Educations educations={data.educations} />
+          <Certificates certificates={data.certificates} />
         </>
       </>
     </ResumeContainer>
   );
 };
-
-const IsDarkTogglePosition = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: end;
-`;
 
 export default ResumeDetail;

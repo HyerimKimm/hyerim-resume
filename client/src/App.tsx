@@ -3,6 +3,7 @@ import { useIsDarkStore } from './store/store';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ResumeDetail from './pages/ResumeDetail';
 import { GlobalStyle } from './styles/global';
+import Login from './pages/Login';
 
 function App() {
   const isDark = useIsDarkStore((state) => state.isDark);
@@ -13,6 +14,7 @@ function App() {
       <AppContainer>
         <Router>
           <Routes>
+            <Route path="/login" element={<Login />} />
             <Route path="/resume/:id" element={<ResumeDetail />} />
           </Routes>
         </Router>
