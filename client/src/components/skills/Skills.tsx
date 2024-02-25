@@ -5,7 +5,7 @@ import {
   SectionTitleTypo,
   SectionWrap,
 } from '../../atoms/Layout.style';
-import { useIsDarkStore } from '../../store/store';
+import { useIsDarkStore } from '../../store/isDarkStore';
 import SkillsItem from './SkillsItem';
 import { useInView } from '../../hooks/useInView';
 

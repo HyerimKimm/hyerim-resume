@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useIsDarkStore } from '../../store/store';
+import { useIsDarkStore } from '../../store/isDarkStore';
 import Toggle from '../../atoms/toggle/Toggle';
 
 const ToggleHeader = () => {

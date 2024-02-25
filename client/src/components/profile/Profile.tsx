@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { profile, link } from '../../types/data';
 import styled from 'styled-components';
 import { BodyTextTypo, Heading4Typo } from '../../atoms/Typography.style';
-import { useIsDarkStore } from '../../store/store';
+import { useIsDarkStore } from '../../store/isDarkStore';
 import { FlexBox, SectionWrap } from '../../atoms/Layout.style';
 import { IconImg } from '../../atoms/Images.style';
 import tokens from '../../styles/tokens.json';

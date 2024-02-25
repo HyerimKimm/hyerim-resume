@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { SectionTitleTypo, SectionWrap } from '../../atoms/Layout.style';
-import { useIsDarkStore } from '../../store/store';
+import { useIsDarkStore } from '../../store/isDarkStore';
 import { career } from '../../types/data';
 import CareerItem from './CareerItem';
 import { useInView } from '../../hooks/useInView';

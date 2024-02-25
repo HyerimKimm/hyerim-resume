@@ -1,12 +1,13 @@
 import { useRef } from 'react';
 import { experience } from '../../types/data';
-import { useIsDarkStore } from '../../store/store';
+import { useIsDarkStore } from '../../store/isDarkStore';
 import {
   FlexBox,
   SectionTitleTypo,
   SectionWrap,
 } from '../../atoms/Layout.style';
 import { useInView } from '../../hooks/useInView';
+import Experience from './Experience';
 
 type experiencesPropsType = {
   experiences: experience[];
@@ -26,7 +27,17 @@ const Experiences = ({ experiences }: experiencesPropsType) => {
       >
         Experiences
       </SectionTitleTypo>
-      <FlexBox $d="column" $a="center" $j="center" $g={24}></FlexBox>
+      <FlexBox
+        $d="column"
+        $a="center"
+        $j="center"
+        $g={24}
+        style={{ width: '100%' }}
+      >
+        {experiences.map((experience) => (
+          <Experience experience={experience} />
+        ))}
+      </FlexBox>
     </SectionWrap>
   );
 };

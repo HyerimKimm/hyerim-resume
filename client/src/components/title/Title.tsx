@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Heading1Typo } from '../../atoms/Typography.style';
-import { useIsDarkStore } from '../../store/store';
+import { useIsDarkStore } from '../../store/isDarkStore';
 import { useInView } from '../../hooks/useInView';
 
 type titlePropsType = {

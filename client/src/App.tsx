@@ -1,5 +1,5 @@
 import { AppContainer } from './atoms/Layout.style';
-import { useIsDarkStore } from './store/store';
+import { useIsDarkStore } from './store/isDarkStore';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ResumeDetail from './pages/ResumeDetail';
 import { GlobalStyle } from './styles/global';

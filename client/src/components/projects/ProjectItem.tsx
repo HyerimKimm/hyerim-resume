@@ -6,7 +6,7 @@ import {
   Heading5Typo,
   SmallTextTypo,
 } from '../../atoms/Typography.style';
-import { useIsDarkStore } from '../../store/store';
+import { useIsDarkStore } from '../../store/isDarkStore';
 import { useInView } from '../../hooks/useInView';
 import dayjs from 'dayjs';
 

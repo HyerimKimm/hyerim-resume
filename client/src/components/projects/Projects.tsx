@@ -1,4 +1,4 @@
-import { useIsDarkStore } from '../../store/store';
+import { useIsDarkStore } from '../../store/isDarkStore';
 import {
   FlexBox,
   SectionTitleTypo,
