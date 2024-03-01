@@ -19,7 +19,7 @@ const Experiences = ({ experiences }: experiencesPropsType) => {
   const [inView] = useInView({ target: target });
 
   return (
-    <SectionWrap $d="column" $j="start" $a="center" $g={12}>
+    <SectionWrap $d="column" $j="start" $a="center" $g={20}>
       <SectionTitleTypo
         $isDark={isDark}
         ref={target}
@@ -27,17 +27,10 @@ const Experiences = ({ experiences }: experiencesPropsType) => {
       >
         Experiences
       </SectionTitleTypo>
-      <FlexBox
-        $d="column"
-        $a="center"
-        $j="center"
-        $g={24}
-        style={{ width: '100%' }}
-      >
-        {experiences.map((experience) => (
-          <Experience experience={experience} />
-        ))}
-      </FlexBox>
+
+      {experiences.map((experience) => (
+        <Experience key={experience.experienceId} experience={experience} />
+      ))}
     </SectionWrap>
   );
 };

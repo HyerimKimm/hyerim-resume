@@ -51,6 +51,7 @@ export type project = {
   deployLink: string;
   repositoryLink: string;
   links: string;
+  imgUrl: string;
   staff: string;
   description: string;
   responsibilities: string;

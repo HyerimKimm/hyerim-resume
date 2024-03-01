@@ -1,11 +1,11 @@
 # 서버 폴더 ignore
-server/.idea/*
-server/node_modules/*
-server/package-lock.json
-server/log/*
-server/.DS_Store
-server/SSREADME.md
-server/config/secret.js
+/server/.idea/*
+/server/node_modules/*
+/server/package-lock.json
+/server/log/*
+/server/.DS_Store
+/server/SSREADME.md
+/server/config/secret.js
 
 # 최상위 폴더 ignore
 .idea/*
@@ -15,3 +15,28 @@ log/*
 .DS_Store
 SSREADME.md
 config/secret.js
+
+# 클라이언트 폴더 ignore
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/client/node_modules
+/client/.pnp
+/client/.pnp.js
+
+# testing
+/client/coverage
+
+# production
+/client/build
+
+# misc
+/clientclient/.DS_Store
+/client.env.local
+/client.env.development.local
+/client.env.test.local
+/client.env.production.local
+
+/client/npm-debug.log*
+/client/yarn-debug.log*
+/client/yarn-error.log*

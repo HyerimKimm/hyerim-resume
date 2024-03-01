@@ -31,7 +31,7 @@ exports.selectSkillsByResumeId = async function (connection, resumeId) {
 };
 
 exports.selectProjectsByResumeId = async function (connection, resumeId) {
-  const selectProjectByResumeIdQuery = `SELECT projectId, projectName, startDate, endDate, deployLink, repositoryLink, links, staff, description, responsibilities, results, orderNum FROM Projects WHERE resumeId = ? ORDER BY orderNum ASC`;
+  const selectProjectByResumeIdQuery = `SELECT projectId, projectName, startDate, endDate, deployLink, repositoryLink, links, imgUrl, staff, description, responsibilities, results, orderNum FROM Projects WHERE resumeId = ? ORDER BY orderNum ASC`;
 
   const params = [resumeId];
 

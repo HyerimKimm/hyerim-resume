@@ -8,6 +8,8 @@ import { useIsDarkStore } from '../../store/isDarkStore';
 import { education } from '../../types/data';
 
 import { useInView } from '../../hooks/useInView';
+import { BodyTextTypo } from '../../atoms/Typography.style';
+import Education from './Education';
 
 type educationsPropsType = {
   educations: education[];
@@ -27,7 +29,9 @@ const Educations = ({ educations }: educationsPropsType) => {
       >
         Educations
       </SectionTitleTypo>
-      <FlexBox $d="column" $a="center" $j="center" $g={24}></FlexBox>
+      {educations.map((education) => (
+        <Education key={education.educationId} education={education} />
+      ))}
     </SectionWrap>
   );
 };
