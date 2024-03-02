@@ -1,9 +1,14 @@
-import { AppContainer } from './atoms/Layout.style';
-import { useIsDarkStore } from './store/isDarkStore';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ResumeDetail from './pages/ResumeDetail';
+import { ErrorBoundary } from 'react-error-boundary';
+
+import { AppContainer } from './atoms/Layout.style';
 import { GlobalStyle } from './styles/global';
+
+import ErrorPage from './pages/ErrorPage';
+import ResumeDetail from './pages/ResumeDetail';
 import Login from './pages/Login';
+
+import { useIsDarkStore } from './store/isDarkStore';
 
 function App() {
   const isDark = useIsDarkStore((state) => state.isDark);
@@ -13,10 +18,12 @@ function App() {
       <GlobalStyle $isDark={isDark} />
       <AppContainer>
         <Router>
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/resume/:id" element={<ResumeDetail />} />
-          </Routes>
+          <ErrorBoundary fallback={<ErrorPage />}>
+            <Routes>
+              <Route path="/login" element={<Login />} />
+              <Route path="/resume/:id" element={<ResumeDetail />} />
+            </Routes>
+          </ErrorBoundary>
         </Router>
       </AppContainer>
     </>

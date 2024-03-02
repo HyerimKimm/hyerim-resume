@@ -4,6 +4,15 @@ import tokens from '../styles/tokens.json';
 const globalTokens = tokens.global;
 
 export const SplashImg = styled.img`
+  @media screen and (max-width: 800px) {
+    width: 150px;
+    height: 150px;
+  }
+  @media screen and (max-width: 650px) {
+    width: 100px;
+    height: 100px;
+  }
+
   width: 200px;
   height: 200px;
   object-fit: fill;

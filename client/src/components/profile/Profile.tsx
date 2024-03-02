@@ -12,6 +12,7 @@ import notionWhite from '../../assets/images/notionWhite.svg';
 import blog from '../../assets/images/blog.svg';
 import blogWhite from '../../assets/images/blogWhite.svg';
 import Introduce from './Introduce';
+import styled from 'styled-components';
 
 type profilePropsType = {
   profile: profile;
@@ -35,7 +36,7 @@ const Profile = ({ profile, links }: profilePropsType) => {
         ref={target1}
         className={inView1 ? 'frame-in' : 'frame-out'}
       >
-        <SplashImg src={profile.profileImageUrl} />
+        <ProfileImg src={profile.profileImageUrl} />
         <FlexBox
           $d={'column'}
           $j={'start'}
@@ -69,5 +70,16 @@ const Profile = ({ profile, links }: profilePropsType) => {
     </>
   );
 };
+
+const ProfileImg = styled(SplashImg)`
+  @media screen and (max-width: 800px) {
+    width: 150px;
+    height: 150px;
+  }
+  @media screen and (max-width: 650px) {
+    width: 150px;
+    height: 150px;
+  }
+`;
 
 export default Profile;
