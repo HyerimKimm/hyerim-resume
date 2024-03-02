@@ -9,6 +9,7 @@ import {
 import { useIsDarkStore } from '../../store/isDarkStore';
 import { useInView } from '../../hooks/useInView';
 import dayjs from 'dayjs';
+import { SplashImg } from '../../atoms/Images.style';
 
 type projectItemPropsType = {
   project: project;
@@ -52,6 +53,17 @@ const ProjectItem = ({ project }: projectItemPropsType) => {
               👉🏻 리포지토리 바로가기
             </SmallTextTypo>
           </a>
+        )}
+        {project.imgUrl && (
+          <FlexBox
+            $d={'column'}
+            $j={'center'}
+            $a={'center'}
+            $g={0}
+            style={{ padding: '10px 0px' }}
+          >
+            <SplashImg src={project.imgUrl} />
+          </FlexBox>
         )}
       </FlexBox>
       <FlexBox $d="column" $j="start" $a="start" $g={12}>

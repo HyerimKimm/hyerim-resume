@@ -1,11 +1,9 @@
 import { useRef } from 'react';
 import { profile, link } from '../../types/data';
-import styled from 'styled-components';
 import { BodyTextTypo, Heading4Typo } from '../../atoms/Typography.style';
 import { useIsDarkStore } from '../../store/isDarkStore';
 import { FlexBox, SectionWrap } from '../../atoms/Layout.style';
-import { IconImg } from '../../atoms/Images.style';
-import tokens from '../../styles/tokens.json';
+import { IconImg, SplashImg } from '../../atoms/Images.style';
 import { useInView } from '../../hooks/useInView';
 import githubWhite from '../../assets/images/githubWhite.svg';
 import github from '../../assets/images/github.svg';
@@ -14,8 +12,6 @@ import notionWhite from '../../assets/images/notionWhite.svg';
 import blog from '../../assets/images/blog.svg';
 import blogWhite from '../../assets/images/blogWhite.svg';
 import Introduce from './Introduce';
-
-const globalTokens = tokens.global;
 
 type profilePropsType = {
   profile: profile;
@@ -39,8 +35,16 @@ const Profile = ({ profile, links }: profilePropsType) => {
         ref={target1}
         className={inView1 ? 'frame-in' : 'frame-out'}
       >
-        <ProfileImgBox src={profile.profileImageUrl} />
-        <InfoWrap ref={target2} className={inView2 ? 'frame-in' : 'frame-out'}>
+        <SplashImg src={profile.profileImageUrl} />
+        <FlexBox
+          $d={'column'}
+          $j={'start'}
+          $a={'start'}
+          $g={0}
+          ref={target2}
+          className={inView2 ? 'frame-in' : 'frame-out'}
+          style={{ flexGrow: '1' }}
+        >
           <Heading4Typo $isDark={isDark}>{profile.name}</Heading4Typo>
           <BodyTextTypo $isDark={isDark}>🏠 {profile.address}</BodyTextTypo>
           <BodyTextTypo $isDark={isDark}>📧 {profile.email}</BodyTextTypo>
@@ -59,23 +63,11 @@ const Profile = ({ profile, links }: profilePropsType) => {
               </a>
             </FlexBox>
           ))}
-        </InfoWrap>
+        </FlexBox>
       </SectionWrap>
       <Introduce introduce={profile.introduce} />
     </>
   );
 };
-
-const ProfileImgBox = styled.img`
-  width: 200px;
-  border-radius: ${globalTokens.RegularRadius.value};
-`;
-
-const InfoWrap = styled.div`
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: ${globalTokens.Spacing4.value};
-`;
 
 export default Profile;

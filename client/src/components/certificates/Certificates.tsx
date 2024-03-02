@@ -7,6 +7,7 @@ import {
   SectionWrap,
 } from '../../atoms/Layout.style';
 import { useInView } from '../../hooks/useInView';
+import Certificate from './Certificate';
 
 type certificatesPropsType = {
   certificates: certificate[];
@@ -26,7 +27,9 @@ const Certificates = ({ certificates }: certificatesPropsType) => {
       >
         Certificates
       </SectionTitleTypo>
-      <FlexBox $d="column" $a="center" $j="center" $g={24}></FlexBox>
+      {certificates.map((certificate) => (
+        <Certificate certificate={certificate} />
+      ))}
     </SectionWrap>
   );
 };

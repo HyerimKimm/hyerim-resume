@@ -43,8 +43,7 @@ const SkillsCategorySection = styled.div`
 `;
 
 const SkillsCategoryTitle = styled(Heading5Typo)`
-  flex-grow: 1;
-  max-width: 200px;
+  width: 120px;
 `;
 
 const SkillsCategoryDatas = styled.ul`
