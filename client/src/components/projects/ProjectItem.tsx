@@ -10,6 +10,10 @@ import { useIsDarkStore } from '../../store/isDarkStore';
 import { useInView } from '../../hooks/useInView';
 import dayjs from 'dayjs';
 import { SplashImg } from '../../atoms/Images.style';
+import styled from 'styled-components';
+import tokens from '../../styles/tokens.json';
+
+const globalTokens = tokens.global;
 
 type projectItemPropsType = {
   project: project;
@@ -53,6 +57,11 @@ const ProjectItem = ({ project }: projectItemPropsType) => {
               👉🏻 리포지토리 바로가기
             </SmallTextTypo>
           </a>
+        )}
+        {project.isServiceEnd && (
+          <SmallTextTypo $isDark={isDark} $isNegative={true}>
+            {project.isServiceEnd}
+          </SmallTextTypo>
         )}
         {project.imgUrl && (
           <FlexBox

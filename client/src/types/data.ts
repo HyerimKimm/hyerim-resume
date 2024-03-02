@@ -56,6 +56,7 @@ export type project = {
   description: string;
   responsibilities: string;
   results: string;
+  isServiceEnd: string;
   orderNum: number;
 };
 
