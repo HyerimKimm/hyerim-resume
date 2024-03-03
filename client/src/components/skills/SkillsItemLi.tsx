@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import tokens from '../../styles/tokens.json';
 import { SkillLevel, skill } from '../../types/data';
-import { TABLET_WIDTH } from '../../constants/constants';
+import { PHONE_WIDTH, TABLET_WIDTH } from '../../constants/constants';
 import { useInView } from '../../hooks/useInView';
 
 const globalTokens = tokens.global;
@@ -43,15 +43,24 @@ const LiContainer = styled.li`
   margin-left: ${globalTokens.Spacing12.value};
   position: relative;
 
+  // 데스크탑에서는 LiDescription이 나타남
   @media screen and (min-width: ${TABLET_WIDTH}) {
     cursor: pointer;
     &:hover {
       color: ${globalTokens.Gray.value};
     }
   }
+
+  // 스마트폰에서는 LiContainer의 margin, padding, 글머리표 뺌
+  @media screen and (max-width: ${PHONE_WIDTH}) {
+    margin-left: 0;
+    padding: 0;
+    list-style-type: none;
+  }
 `;
 
 const LiDescription = styled.div<{ $isHover: boolean }>`
+  // 태블릿, 스마트폰에서는 LiDescription이 나타나지 않음.
   @media screen and (max-width: ${TABLET_WIDTH}) {
     display: none;
   }

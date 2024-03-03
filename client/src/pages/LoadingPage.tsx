@@ -2,7 +2,7 @@ import { FlexBox } from '../atoms/Layout.style';
 import { Heading1Typo } from '../atoms/Typography.style';
 import { useIsDarkStore } from '../store/isDarkStore';
 
-const ErrorPage = () => {
+const LoadingPage = () => {
   const { isDark } = useIsDarkStore();
 
   return (
@@ -15,10 +15,10 @@ const ErrorPage = () => {
       $height="100vh"
     >
       <Heading1Typo $isDark={isDark} $mode="primary">
-        Oops! Error.
+        Loading...
       </Heading1Typo>
     </FlexBox>
   );
 };
 
-export default ErrorPage;
+export default LoadingPage;

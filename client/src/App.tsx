@@ -21,7 +21,7 @@ function App() {
           <ErrorBoundary fallback={<ErrorPage />}>
             <Routes>
               <Route path="/login" element={<Login />} />
-              <Route path="/resume/:id" element={<ResumeDetail />} />
+              <Route index path="/resume/:id" element={<ResumeDetail />} />
             </Routes>
           </ErrorBoundary>
         </Router>

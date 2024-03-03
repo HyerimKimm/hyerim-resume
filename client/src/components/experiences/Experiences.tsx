@@ -22,6 +22,7 @@ const Experiences = ({ experiences }: experiencesPropsType) => {
     <SectionWrap $d="column" $j="start" $a="center" $g={20}>
       <SectionTitleTypo
         $isDark={isDark}
+        $mode="primary"
         ref={target}
         className={inView ? 'frame-in' : 'frame-out'}
       >

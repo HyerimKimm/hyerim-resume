@@ -1,14 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import tokens from '../../styles/tokens.json';
+
 import { useIsDarkStore } from '../../store/isDarkStore';
 import Toggle from '../../atoms/toggle/Toggle';
+
+const globalTokens = tokens.global;
 
 const ToggleHeader = () => {
   const isDark = useIsDarkStore((state) => state.isDark);
   const setIsDark = useIsDarkStore((state) => state.setIsDark);
 
   return (
-    <IsDarkTogglePosition>
+    <IsDarkTogglePosition $isDark={isDark}>
       <Toggle
         isDark={isDark}
         isSelected={isDark}
@@ -20,10 +24,16 @@ const ToggleHeader = () => {
   );
 };
 
-const IsDarkTogglePosition = styled.div`
+const IsDarkTogglePosition = styled.div<{ $isDark: boolean }>`
   width: 100%;
+  height: fit-content;
   display: flex;
   flex-direction: row;
   justify-content: end;
+  position: sticky;
+  top: 0;
+  right: 0;
+  padding-top: ${globalTokens.Spacing20.value};
+  z-index: 1;
 `;
 export default ToggleHeader;

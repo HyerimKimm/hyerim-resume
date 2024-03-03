@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import NotoSansKRRegular from '../assets/fonts/NotoSansKR-Regular.ttf';
 import NotoSansKRBold from '../assets/fonts/NotoSansKR-Bold.ttf';
 import NotoSansKRThin from '../assets/fonts/NotoSansKR-Thin.ttf';
+import NotoSansKRMidium from '../assets/fonts/NotoSansKR-Medium.ttf';
 import OrbitRegular from '../assets/fonts/Orbit-Regular.ttf';
 import tokens from './tokens.json';
 import { frameInBottomToTopAnimation } from './animation';
@@ -15,26 +16,28 @@ type globalStylePropsType = {
 export const GlobalStyle = createGlobalStyle<globalStylePropsType>`
   @font-face {
     font-family : 'NotoSansKR';
-    font-style : normal;
     font-weight: normal;
-    src: url("${NotoSansKRRegular}");
+    src: url(${NotoSansKRRegular});
   }
   @font-face {
     font-family: 'NotoSansKR';
-    font-style: normal;
     font-weight: bold;
-    src: url("${NotoSansKRBold}");
+    src: url(${NotoSansKRBold});
   }
   @font-face {
     font-family: 'NotoSansKR';
-    font-style: normal;
+    font-weight: 500;
+    src:url(${NotoSansKRMidium});
+  }
+  @font-face {
+    font-family: 'NotoSansKR';
     font-weight: 300;
-    src: url("${NotoSansKRThin}");
+    src: url(${NotoSansKRThin});
   }
   @font-face {
     font-family: 'OrbitRegular';
     font-weight: 400;
-    src: url("${OrbitRegular}");
+    src: url(${OrbitRegular});
   }
 
   * {
@@ -49,10 +52,14 @@ export const GlobalStyle = createGlobalStyle<globalStylePropsType>`
     outline: 0;
     border: none;
     color: ${(props) =>
-      props.$isDark ? globalTokens.White.value : globalTokens.Black.value};
+      props.$isDark ? globalTokens.White.value : globalTokens.Black.value}; 
     & ::selection {
-      color: ${globalTokens.Black.value};
-      background-color: ${globalTokens.PrimaryLight.value};
+      color: ${(props) =>
+        !props.$isDark ? globalTokens.White.value : globalTokens.Black.value};
+      background-color: ${(props) =>
+        props.$isDark
+          ? globalTokens.PrimaryLight.value
+          : globalTokens.Primary.value};
     }
     &.frame-in {
       animation: ${frameInBottomToTopAnimation} 1.5s;
@@ -80,11 +87,6 @@ export const GlobalStyle = createGlobalStyle<globalStylePropsType>`
   a:visited,
   a:active {
     text-decoration: none;
-    color : ${globalTokens.Primary.value};
-    > * {
-      text-decoration: none;
-      color : ${globalTokens.Primary.value};
-    }
   }
   a:hover {
     opacity: 0.5;

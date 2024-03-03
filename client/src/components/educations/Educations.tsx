@@ -24,6 +24,7 @@ const Educations = ({ educations }: educationsPropsType) => {
     <SectionWrap $d="column" $j="start" $a="center" $g={12}>
       <SectionTitleTypo
         $isDark={isDark}
+        $mode="primary"
         ref={target}
         className={inView ? 'frame-in' : 'frame-out'}
       >

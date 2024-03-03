@@ -6,6 +6,7 @@ import { skill, skillCategory } from '../../types/data';
 import { useIsDarkStore } from '../../store/isDarkStore';
 import SkillsItemLi from './SkillsItemLi';
 import { useInView } from '../../hooks/useInView';
+import { PHONE_WIDTH, TABLET_WIDTH } from '../../constants/constants';
 
 const globalTokens = tokens.global;
 
@@ -36,6 +37,11 @@ const SkillsItem = ({ title, skills }: skillsItemPropsType) => {
 
 const SkillsCategorySection = styled.div`
   width: 100%;
+  @media screen and (max-width: ${PHONE_WIDTH}) {
+    flex-direction: column;
+    align-items: start;
+    gap: ${globalTokens.Spacing4.value};
+  }
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -43,10 +49,11 @@ const SkillsCategorySection = styled.div`
 `;
 
 const SkillsCategoryTitle = styled(Heading5Typo)`
-  width: 120px;
+  width: 150px;
 `;
 
 const SkillsCategoryDatas = styled.ul`
+  width: 100%;
   flex-grow: 3;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

@@ -22,13 +22,17 @@ const Certificates = ({ certificates }: certificatesPropsType) => {
     <SectionWrap $d="column" $j="start" $a="center" $g={12}>
       <SectionTitleTypo
         $isDark={isDark}
+        $mode="primary"
         ref={target}
         className={inView ? 'frame-in' : 'frame-out'}
       >
         Certificates
       </SectionTitleTypo>
       {certificates.map((certificate) => (
-        <Certificate certificate={certificate} />
+        <Certificate
+          key={certificate.certificateId}
+          certificate={certificate}
+        />
       ))}
     </SectionWrap>
   );

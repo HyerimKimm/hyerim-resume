@@ -25,7 +25,9 @@ const Introduce = ({ introduce }: introducePropsType) => {
       ref={target}
       className={inView ? 'frame-in' : 'frame-out'}
     >
-      <SectionTitleTypo $isDark={isDark}>Introduce</SectionTitleTypo>
+      <SectionTitleTypo $isDark={isDark} $mode="primary">
+        Introduce
+      </SectionTitleTypo>
       <IntroduceInfoWrap
         $isDark={isDark}
         dangerouslySetInnerHTML={{ __html: introduce }}

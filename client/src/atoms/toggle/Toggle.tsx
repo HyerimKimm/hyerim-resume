@@ -34,7 +34,7 @@ const ToggleContainer = styled(Button)<{ $isSelected: boolean }>`
   border-radius: ${globalTokens.RoundRadius.value};
   background-color: ${(props) =>
     props.$isSelected
-      ? globalTokens.Primary.value
+      ? globalTokens.PrimaryLight.value
       : globalTokens.LightGray.value};
 `;
 

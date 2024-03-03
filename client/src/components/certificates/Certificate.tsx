@@ -26,7 +26,7 @@ const Certificate = ({ certificate }: certificationPropsType) => {
       style={{ width: '100%' }}
     >
       <Heading5Typo $isDark={isDark}>{certificate.title}</Heading5Typo>
-      <SmallTextTypo $isDark={isDark}>
+      <SmallTextTypo $isDark={isDark} $mode="label">
         {dayjs(certificate.issueDate, 'YYYYMM').format('YYYY.MM')}
       </SmallTextTypo>
     </FlexBox>

@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
-import { ResumeContainer } from '../atoms/Layout.style';
+import { FlexBox, ResumeContainer } from '../atoms/Layout.style';
 
 import Profile from '../components/profile/Profile';
 import Skills from '../components/skills/Skills';
@@ -16,6 +16,8 @@ import Certificates from '../components/certificates/Certificates';
 import { getResumeDatas } from '../service/resumeApi';
 
 import { data } from '../types/data';
+import LoadingPage from './LoadingPage';
+import ErrorPage from './ErrorPage';
 
 const initialData: data = {
   profile: {
@@ -50,23 +52,32 @@ const ResumeDetail = () => {
     gcTime: 1000 * 60 * 30, // 30분
   });
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error</div>;
+  if (isLoading) return <LoadingPage />;
+
+  if (error) return <ErrorPage />;
 
   return (
     <ResumeContainer>
       <>
         <ToggleHeader />
-        <>
-          <Title title={data.profile.title} />
-          <Profile profile={data.profile} links={data.links} />
+        <FlexBox
+          $d="column"
+          $a="center"
+          $j="center"
+          $g={60}
+          style={{ position: 'relative' }}
+        >
+          <FlexBox $d="column" $j="center" $a="center" $g={24} $width="100%">
+            <Title title={data.profile.title} />
+            <Profile profile={data.profile} links={data.links} />
+          </FlexBox>
           <Skills skills={data.skills} />
           <Projects projects={data.projects} />
           <Careers careers={data.careers} />
           <Experiences experiences={data.experiences} />
           <Educations educations={data.educations} />
           <Certificates certificates={data.certificates} />
-        </>
+        </FlexBox>
       </>
     </ResumeContainer>
   );

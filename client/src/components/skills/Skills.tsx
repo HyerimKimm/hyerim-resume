@@ -30,6 +30,7 @@ const Skills = ({ skills }: skillsPropsType) => {
     <SectionWrap $d="column" $j="start" $a="start" $g={4}>
       <SectionTitleTypo
         $isDark={isDark}
+        $mode="primary"
         ref={target}
         className={inView ? 'frame-in' : 'frame-out'}
       >

@@ -1,5 +1,9 @@
 import { useRef } from 'react';
-import { SectionTitleTypo, SectionWrap } from '../../atoms/Layout.style';
+import {
+  FlexBox,
+  SectionTitleTypo,
+  SectionWrap,
+} from '../../atoms/Layout.style';
 import { useIsDarkStore } from '../../store/isDarkStore';
 import { career } from '../../types/data';
 import CareerItem from './CareerItem';
@@ -15,17 +19,20 @@ const Careers = ({ careers }: careersPropsType) => {
   const [inView] = useInView({ target: target });
 
   return (
-    <SectionWrap $d="column" $j="start" $a="center" $g={12}>
+    <SectionWrap $d="column" $j="start" $a="center" $g={24}>
       <SectionTitleTypo
         $isDark={isDark}
+        $mode="primary"
         ref={target}
         className={inView ? 'frame-in' : 'frame-out'}
       >
         Careers
       </SectionTitleTypo>
-      {careers.map((career) => (
-        <CareerItem key={career.careerId} career={career} />
-      ))}
+      <FlexBox $d="column" $j="start" $a="center" $g={60}>
+        {careers.map((career) => (
+          <CareerItem key={career.careerId} career={career} />
+        ))}
+      </FlexBox>
     </SectionWrap>
   );
 };

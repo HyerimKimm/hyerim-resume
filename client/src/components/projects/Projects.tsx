@@ -19,15 +19,16 @@ const Projects = ({ projects }: projectPropsType) => {
   const [inView] = useInView({ target: target });
 
   return (
-    <SectionWrap $d="column" $j="start" $a="center" $g={12}>
+    <SectionWrap $d="column" $j="start" $a="center" $g={24}>
       <SectionTitleTypo
         $isDark={isDark}
+        $mode="primary"
         ref={target}
         className={inView ? 'frame-in' : 'frame-out'}
       >
         Projects
       </SectionTitleTypo>
-      <FlexBox $d="column" $a="center" $j="center" $g={24}>
+      <FlexBox $d="column" $j="center" $a="center" $g={60}>
         {projects.map((project, index) => (
           <ProjectItem key={index} project={project} />
         ))}

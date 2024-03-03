@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { profile, link } from '../../types/data';
 import { BodyTextTypo, Heading4Typo } from '../../atoms/Typography.style';
 import { useIsDarkStore } from '../../store/isDarkStore';
-import { FlexBox, SectionWrap } from '../../atoms/Layout.style';
+import { FlexBox, GridBox, SectionWrap } from '../../atoms/Layout.style';
 import { IconImg, SplashImg } from '../../atoms/Images.style';
 import { useInView } from '../../hooks/useInView';
 import githubWhite from '../../assets/images/githubWhite.svg';
@@ -12,7 +12,6 @@ import notionWhite from '../../assets/images/notionWhite.svg';
 import blog from '../../assets/images/blog.svg';
 import blogWhite from '../../assets/images/blogWhite.svg';
 import Introduce from './Introduce';
-import styled from 'styled-components';
 
 type profilePropsType = {
   profile: profile;
@@ -21,6 +20,7 @@ type profilePropsType = {
 
 const Profile = ({ profile, links }: profilePropsType) => {
   const isDark = useIsDarkStore((state) => state.isDark);
+
   const target1 = useRef(null);
   const target2 = useRef(null);
   const [inView1] = useInView({ target: target1 });
@@ -28,58 +28,62 @@ const Profile = ({ profile, links }: profilePropsType) => {
 
   return (
     <>
-      <SectionWrap
-        $d="row"
-        $j="center"
-        $a="center"
-        $g={20}
-        ref={target1}
-        className={inView1 ? 'frame-in' : 'frame-out'}
-      >
-        <ProfileImg src={profile.profileImageUrl} />
-        <FlexBox
-          $d={'column'}
-          $j={'start'}
-          $a={'start'}
-          $g={0}
-          ref={target2}
-          className={inView2 ? 'frame-in' : 'frame-out'}
-          style={{ flexGrow: '1' }}
+      <SectionWrap $d="column" $j="start" $a="center" $g={20}>
+        <GridBox
+          $cg={20}
+          $rg={40}
+          $gridTemplateColumns="auto 1fr"
+          ref={target1}
+          className={inView1 ? 'frame-in' : 'frame-out'}
         >
-          <Heading4Typo $isDark={isDark}>{profile.name}</Heading4Typo>
-          <BodyTextTypo $isDark={isDark}>🏠 {profile.address}</BodyTextTypo>
-          <BodyTextTypo $isDark={isDark}>📧 {profile.email}</BodyTextTypo>
-          <BodyTextTypo $isDark={isDark}>📞 {profile.phoneNumber}</BodyTextTypo>
-          {links.map((link) => (
-            <FlexBox key={link.linkId} $d="row" $j="start" $a="center" $g={4}>
-              {link.linkName === 'Github' ? (
-                <IconImg src={isDark ? githubWhite : github} />
-              ) : link.linkName === 'Notion' ? (
-                <IconImg src={isDark ? notionWhite : notion} />
-              ) : (
-                <IconImg src={isDark ? blogWhite : blog} />
-              )}
-              <a href={link.url} target={'_blank'} rel="noopener noreferrer">
-                {link.linkName} 바로가기
-              </a>
-            </FlexBox>
-          ))}
-        </FlexBox>
+          <FlexBox
+            $d="column"
+            $j="center"
+            $a="center"
+            $g={0}
+            style={{ width: '100%', height: '100%' }}
+          >
+            <SplashImg src={profile.profileImageUrl} $tablet_width="200px" />
+          </FlexBox>
+          <FlexBox
+            $d={'column'}
+            $j={'start'}
+            $a={'start'}
+            $g={4}
+            ref={target2}
+            className={inView2 ? 'frame-in' : 'frame-out'}
+            style={{ flexGrow: '1' }}
+          >
+            <Heading4Typo $isDark={isDark}>{profile.name}</Heading4Typo>
+            <BodyTextTypo $isDark={isDark}>🏠 {profile.address}</BodyTextTypo>
+            <BodyTextTypo $isDark={isDark}>📧 {profile.email}</BodyTextTypo>
+            <BodyTextTypo $isDark={isDark}>
+              📞 {profile.phoneNumber}
+            </BodyTextTypo>
+            {links.map((link) => (
+              <FlexBox key={link.linkId} $d="row" $j="start" $a="center" $g={4}>
+                {link.linkName === 'Github' ? (
+                  <IconImg src={isDark ? githubWhite : github} />
+                ) : link.linkName === 'Notion' ? (
+                  <IconImg src={isDark ? notionWhite : notion} />
+                ) : (
+                  <IconImg src={isDark ? blogWhite : blog} />
+                )}
+                <a href={link.url} target={'_blank'} rel="noopener noreferrer">
+                  <BodyTextTypo $isDark={isDark} $mode="primary">
+                    {link.linkName} 바로가기
+                  </BodyTextTypo>
+                </a>
+              </FlexBox>
+            ))}
+          </FlexBox>
+        </GridBox>
       </SectionWrap>
-      <Introduce introduce={profile.introduce} />
+      <SectionWrap $d="column" $j="start" $a="start" $g={20}>
+        <Introduce introduce={profile.introduce} />
+      </SectionWrap>
     </>
   );
 };
-
-const ProfileImg = styled(SplashImg)`
-  @media screen and (max-width: 800px) {
-    width: 150px;
-    height: 150px;
-  }
-  @media screen and (max-width: 650px) {
-    width: 150px;
-    height: 150px;
-  }
-`;
 
 export default Profile;

@@ -22,12 +22,13 @@ const CareerItem = ({ career }: careerPropsType) => {
   return (
     <GridBox
       $rg={12}
+      $cg={4}
       ref={target}
       className={inView ? 'frame-in' : 'frame-out'}
     >
       <FlexBox $d="column" $j="start" $a="start" $g={0}>
         <Heading5Typo $isDark={isDark}>{career.companyName}</Heading5Typo>
-        <SmallTextTypo $isDark={isDark}>
+        <SmallTextTypo $isDark={isDark} $mode="label">
           {dayjs(career.startDate, 'YYYYMM').format('YYYY.MM')} -{' '}
           {career.endDate.length === 6
             ? dayjs(career.endDate, 'YYYYMM').format('YYYY.MM')

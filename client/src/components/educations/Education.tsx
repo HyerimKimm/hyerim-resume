@@ -35,20 +35,22 @@ const Education = ({ education }: educationPropsType) => {
       style={{ width: '100%' }}
     >
       <Heading5Typo $isDark={isDark}>{education.title}</Heading5Typo>
-      <SmallTextTypo $isDark={isDark}>
+      <SmallTextTypo $isDark={isDark} $mode="label">
         {dayjs(education.startDate, 'YYYYMM').format('YYYY.MM')} ~{' '}
         {dayjs(education.endDate, 'YYYYMM').format('YYYY.MM')}
       </SmallTextTypo>
-      <SmallHTMLTextTypo>
+      <SmallHTMLTextTypo $isDark={isDark} $mode="label">
         <div dangerouslySetInnerHTML={{ __html: education.description }} />
       </SmallHTMLTextTypo>
     </FlexBox>
   );
 };
 
-const SmallHTMLTextTypo = styled.div`
+const SmallHTMLTextTypo = styled(SmallTextTypo)`
   * {
     font-size: ${globalTokens.SmallTextSize.value};
+    color: ${(props) =>
+      props.$isDark ? globalTokens.LightGray.value : globalTokens.Gray.value};
   }
 `;
 
