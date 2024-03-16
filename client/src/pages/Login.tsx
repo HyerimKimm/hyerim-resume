@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlexBox, ResumeContainer } from '../atoms/Layout.style';
 import { Heading1Typo } from '../atoms/Typography.style';
-import { useIsDarkStore } from '../store/isDarkStore';
+import { isDarkStore } from '../store/isDarkStore';
 import { Button, FillButton } from '../atoms/Buttons.style';
 import styled from 'styled-components';
 import tokens from '../styles/tokens.json';
@@ -10,7 +10,7 @@ import ToggleHeader from '../components/headers/ToggleHeader';
 const globalTokens = tokens.global;
 
 const Login = () => {
-  const { isDark } = useIsDarkStore();
+  const { isDark } = isDarkStore();
 
   return (
     <ResumeContainer>

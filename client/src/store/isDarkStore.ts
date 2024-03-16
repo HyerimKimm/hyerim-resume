@@ -6,7 +6,7 @@ type isDarkStateType = {
   setIsDark: (payload: boolean) => void;
 };
 
-export const useIsDarkStore = create<isDarkStateType>()(
+export const isDarkStore = create<isDarkStateType>()(
   devtools(
     persist(
       (set) => ({

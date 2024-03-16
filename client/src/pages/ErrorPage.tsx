@@ -1,9 +1,9 @@
 import { FlexBox } from '../atoms/Layout.style';
 import { Heading1Typo } from '../atoms/Typography.style';
-import { useIsDarkStore } from '../store/isDarkStore';
+import { isDarkStore } from '../store/isDarkStore';
 
 const ErrorPage = () => {
-  const { isDark } = useIsDarkStore();
+  const { isDark } = isDarkStore();
 
   return (
     <FlexBox

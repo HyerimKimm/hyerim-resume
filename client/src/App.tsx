@@ -8,10 +8,10 @@ import ErrorPage from './pages/ErrorPage';
 import ResumeDetail from './pages/ResumeDetail';
 import Login from './pages/Login';
 
-import { useIsDarkStore } from './store/isDarkStore';
+import { isDarkStore } from './store/isDarkStore';
 
 function App() {
-  const isDark = useIsDarkStore((state) => state.isDark);
+  const isDark = isDarkStore((state) => state.isDark);
 
   return (
     <>

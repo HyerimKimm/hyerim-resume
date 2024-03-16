@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import tokens from '../../styles/tokens.json';
 
-import { useIsDarkStore } from '../../store/isDarkStore';
+import { isDarkStore } from '../../store/isDarkStore';
 import Toggle from '../../atoms/toggle/Toggle';
 
 const globalTokens = tokens.global;
 
 const ToggleHeader = () => {
-  const isDark = useIsDarkStore((state) => state.isDark);
-  const setIsDark = useIsDarkStore((state) => state.setIsDark);
+  const isDark = isDarkStore((state) => state.isDark);
+  const setIsDark = isDarkStore((state) => state.setIsDark);
 
   return (
     <IsDarkTogglePosition $isDark={isDark}>

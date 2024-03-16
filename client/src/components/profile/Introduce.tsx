@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 import tokens from '../../styles/tokens.json';
-import { useIsDarkStore } from '../../store/isDarkStore';
+import { isDarkStore } from '../../store/isDarkStore';
 import { SectionTitleTypo, SectionWrap } from '../../atoms/Layout.style';
 import { useInView } from '../../hooks/useInView';
 
@@ -12,7 +12,7 @@ type introducePropsType = {
 };
 
 const Introduce = ({ introduce }: introducePropsType) => {
-  const isDark = useIsDarkStore((state) => state.isDark);
+  const isDark = isDarkStore((state) => state.isDark);
   const target = useRef(null);
   const [inView] = useInView({ target: target });
 

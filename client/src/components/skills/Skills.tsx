@@ -5,7 +5,7 @@ import {
   SectionTitleTypo,
   SectionWrap,
 } from '../../atoms/Layout.style';
-import { useIsDarkStore } from '../../store/isDarkStore';
+import { isDarkStore } from '../../store/isDarkStore';
 import SkillsItem from './SkillsItem';
 import { useInView } from '../../hooks/useInView';
 
@@ -17,7 +17,7 @@ const Skills = ({ skills }: skillsPropsType) => {
   const target = useRef(null);
   const [inView] = useInView({ target: target });
 
-  const isDark = useIsDarkStore((state) => state.isDark);
+  const isDark = isDarkStore((state) => state.isDark);
 
   const frontSkills = skills.filter((skill) => skill.category === 'Front-end');
   const backSkills = skills.filter((skill) => skill.category === 'Back-end');

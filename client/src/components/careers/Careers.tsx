@@ -4,7 +4,7 @@ import {
   SectionTitleTypo,
   SectionWrap,
 } from '../../atoms/Layout.style';
-import { useIsDarkStore } from '../../store/isDarkStore';
+import { isDarkStore } from '../../store/isDarkStore';
 import { career } from '../../types/data';
 import CareerItem from './CareerItem';
 import { useInView } from '../../hooks/useInView';
@@ -14,7 +14,7 @@ type careersPropsType = {
 };
 
 const Careers = ({ careers }: careersPropsType) => {
-  const isDark = useIsDarkStore((state) => state.isDark);
+  const isDark = isDarkStore((state) => state.isDark);
   const target = useRef(null);
   const [inView] = useInView({ target: target });
 

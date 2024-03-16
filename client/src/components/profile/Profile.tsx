@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { profile, link } from '../../types/data';
 import { BodyTextTypo, Heading4Typo } from '../../atoms/Typography.style';
-import { useIsDarkStore } from '../../store/isDarkStore';
+import { isDarkStore } from '../../store/isDarkStore';
 import { FlexBox, GridBox, SectionWrap } from '../../atoms/Layout.style';
 import { IconImg, SplashImg } from '../../atoms/Images.style';
 import { useInView } from '../../hooks/useInView';
@@ -19,7 +19,7 @@ type profilePropsType = {
 };
 
 const Profile = ({ profile, links }: profilePropsType) => {
-  const isDark = useIsDarkStore((state) => state.isDark);
+  const isDark = isDarkStore((state) => state.isDark);
 
   const target1 = useRef(null);
   const target2 = useRef(null);

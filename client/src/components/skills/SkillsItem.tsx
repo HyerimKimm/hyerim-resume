@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Heading5Typo } from '../../atoms/Typography.style';
 import tokens from '../../styles/tokens.json';
 import { skill, skillCategory } from '../../types/data';
-import { useIsDarkStore } from '../../store/isDarkStore';
+import { isDarkStore } from '../../store/isDarkStore';
 import SkillsItemLi from './SkillsItemLi';
 import { useInView } from '../../hooks/useInView';
 import { PHONE_WIDTH, TABLET_WIDTH } from '../../constants/constants';
@@ -16,7 +16,7 @@ type skillsItemPropsType = {
 };
 
 const SkillsItem = ({ title, skills }: skillsItemPropsType) => {
-  const isDark = useIsDarkStore((state) => state.isDark);
+  const isDark = isDarkStore((state) => state.isDark);
   const target = useRef(null);
   const [inView] = useInView({ target: target });
 

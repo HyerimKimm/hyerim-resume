@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import { experience } from '../../types/data';
 import { FlexBox } from '../../atoms/Layout.style';
 import { Heading5Typo, SmallTextTypo } from '../../atoms/Typography.style';
-import { useIsDarkStore } from '../../store/isDarkStore';
+import { isDarkStore } from '../../store/isDarkStore';
 import { useInView } from '../../hooks/useInView';
 
 type experiencePropsType = {
@@ -12,7 +12,7 @@ type experiencePropsType = {
 };
 
 const Experience = ({ experience }: experiencePropsType) => {
-  const { isDark } = useIsDarkStore();
+  const { isDark } = isDarkStore();
   const target = useRef(null);
   const [inView] = useInView({ target: target });
 

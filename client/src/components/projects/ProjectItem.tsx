@@ -6,21 +6,17 @@ import {
   Heading5Typo,
   SmallTextTypo,
 } from '../../atoms/Typography.style';
-import { useIsDarkStore } from '../../store/isDarkStore';
+import { isDarkStore } from '../../store/isDarkStore';
 import { useInView } from '../../hooks/useInView';
 import dayjs from 'dayjs';
 import { SplashImg } from '../../atoms/Images.style';
-import styled from 'styled-components';
-import tokens from '../../styles/tokens.json';
-
-const globalTokens = tokens.global;
 
 type projectItemPropsType = {
   project: project;
 };
 
 const ProjectItem = ({ project }: projectItemPropsType) => {
-  const isDark = useIsDarkStore((state) => state.isDark);
+  const isDark = isDarkStore((state) => state.isDark);
   const target = useRef(null);
   const [inView] = useInView({ target: target });
 

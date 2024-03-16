@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { FlexBox } from '../../atoms/Layout.style';
 import { certificate } from '../../types/data';
 import { Heading5Typo, SmallTextTypo } from '../../atoms/Typography.style';
-import { useIsDarkStore } from '../../store/isDarkStore';
+import { isDarkStore } from '../../store/isDarkStore';
 import { useInView } from '../../hooks/useInView';
 import dayjs from 'dayjs';
 
@@ -11,7 +11,7 @@ type certificationPropsType = {
 };
 
 const Certificate = ({ certificate }: certificationPropsType) => {
-  const { isDark } = useIsDarkStore();
+  const { isDark } = isDarkStore();
   const target = useRef(null);
   const [inView] = useInView({ target: target });
 

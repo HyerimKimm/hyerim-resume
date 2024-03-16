@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { experience } from '../../types/data';
-import { useIsDarkStore } from '../../store/isDarkStore';
+import { isDarkStore } from '../../store/isDarkStore';
 import {
   FlexBox,
   SectionTitleTypo,
@@ -14,7 +14,7 @@ type experiencesPropsType = {
 };
 
 const Experiences = ({ experiences }: experiencesPropsType) => {
-  const isDark = useIsDarkStore((state) => state.isDark);
+  const isDark = isDarkStore((state) => state.isDark);
   const target = useRef(null);
   const [inView] = useInView({ target: target });
 

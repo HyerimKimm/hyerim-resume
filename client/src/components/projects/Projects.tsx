@@ -1,4 +1,4 @@
-import { useIsDarkStore } from '../../store/isDarkStore';
+import { isDarkStore } from '../../store/isDarkStore';
 import {
   FlexBox,
   SectionTitleTypo,
@@ -14,7 +14,7 @@ type projectPropsType = {
 };
 
 const Projects = ({ projects }: projectPropsType) => {
-  const isDark = useIsDarkStore((state) => state.isDark);
+  const isDark = isDarkStore((state) => state.isDark);
   const target = useRef(null);
   const [inView] = useInView({ target: target });
 

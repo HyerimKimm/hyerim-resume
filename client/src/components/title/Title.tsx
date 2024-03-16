@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Heading1Typo } from '../../atoms/Typography.style';
-import { useIsDarkStore } from '../../store/isDarkStore';
+import { isDarkStore } from '../../store/isDarkStore';
 import { useInView } from '../../hooks/useInView';
 
 type titlePropsType = {
@@ -8,7 +8,7 @@ type titlePropsType = {
 };
 
 const Title = ({ title }: titlePropsType) => {
-  const isDark = useIsDarkStore((state) => state.isDark);
+  const isDark = isDarkStore((state) => state.isDark);
   const target = useRef(null);
   const [inView] = useInView({ target: target });
 

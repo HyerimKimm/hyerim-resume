@@ -1,8 +1,7 @@
 import { useRef } from 'react';
 import { certificate } from '../../types/data';
-import { useIsDarkStore } from '../../store/isDarkStore';
+import { isDarkStore } from '../../store/isDarkStore';
 import {
-  FlexBox,
   SectionTitleTypo,
   SectionWrap,
 } from '../../atoms/Layout.style';
@@ -14,7 +13,7 @@ type certificatesPropsType = {
 };
 
 const Certificates = ({ certificates }: certificatesPropsType) => {
-  const isDark = useIsDarkStore((state) => state.isDark);
+  const isDark = isDarkStore((state) => state.isDark);
   const target = useRef(null);
   const [inView] = useInView({ target: target });
 
