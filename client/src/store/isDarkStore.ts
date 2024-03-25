@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { SetState, create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
 type isDarkStateType = {
@@ -6,16 +6,15 @@ type isDarkStateType = {
   setIsDark: (payload: boolean) => void;
 };
 
+const store = (set: SetState<isDarkStateType>) => ({
+  isDark: false,
+  setIsDark: (payload: boolean) => set(() => ({ isDark: payload })),
+});
+
 export const isDarkStore = create<isDarkStateType>()(
   devtools(
-    persist(
-      (set) => ({
-        isDark: false,
-        setIsDark: (payload) => set(() => ({ isDark: payload })),
-      }),
-      {
-        name: 'isDark-storage',
-      }
-    )
+    persist(store, {
+      name: 'isDark-storage',
+    })
   )
 );

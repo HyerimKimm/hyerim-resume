@@ -1,6 +1,3 @@
-import { useParams } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
-
 import { FlexBox, ResumeContainer } from '../atoms/Layout.style';
 
 import Profile from '../components/profile/Profile';
@@ -12,12 +9,10 @@ import ToggleHeader from '../components/headers/ToggleHeader';
 import Experiences from '../components/experiences/Experiences';
 import Educations from '../components/educations/Educations';
 import Certificates from '../components/certificates/Certificates';
-
-import { getResumeDatas } from '../service/resumeApi';
-
 import { data } from '../types/data';
 import LoadingPage from './LoadingPage';
 import ErrorPage from './ErrorPage';
+import { useResumeQuery } from '../queries/useResumeQuery';
 
 const initialData: data = {
   profile: {
@@ -39,18 +34,7 @@ const initialData: data = {
 };
 
 const ResumeDetail = () => {
-  const { id } = useParams();
-
-  const {
-    isLoading,
-    error,
-    data = initialData,
-  } = useQuery<data>({
-    queryKey: ['resume'],
-    queryFn: () => getResumeDatas({ id: id }).then((res) => res.result),
-    staleTime: 1000 * 60 * 10, // 10분
-    gcTime: 1000 * 60 * 30, // 30분
-  });
+  const { isLoading, error, data = initialData } = useResumeQuery();
 
   if (isLoading) return <LoadingPage />;
 
