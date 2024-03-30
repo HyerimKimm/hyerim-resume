@@ -7,7 +7,7 @@ export const useResumeQuery = () => {
   const { id } = useParams();
 
   return useQuery<data>({
-    queryKey: ['resume'],
+    queryKey: ['resume', id],
     queryFn: () => getResumeDatas({ id: id }).then((res) => res.result),
   });
 };
