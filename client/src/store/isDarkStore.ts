@@ -8,7 +8,7 @@ type isDarkStateType = {
 
 const store = (set: SetState<isDarkStateType>) => ({
   isDark: false,
-  setIsDark: (payload: boolean) => set(() => ({ isDark: payload })),
+  setIsDark: (payload: boolean) => set({ isDark: payload }),
 });
 
 export const isDarkStore = create<isDarkStateType>()(
