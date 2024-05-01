@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import tokens from '../styles/tokens.json';
-import { PHONE_WIDTH, TABLET_WIDTH } from '../constants/constants';
+import tokens from 'styles/tokens.json';
+import { PHONE_WIDTH, TABLET_WIDTH } from 'constants/constants';
 
 const globalTokens = tokens.global;
 

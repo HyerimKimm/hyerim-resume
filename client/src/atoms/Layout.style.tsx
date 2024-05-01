@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import tokens from '../styles/tokens.json';
-import { Heading3Typo } from './Typography.style';
-import { PHONE_WIDTH } from '../constants/constants';
+import tokens from 'styles/tokens.json';
+
+import { PHONE_WIDTH } from 'constants/constants';
+import { Heading3Typo } from 'atoms/typography/Typography.style';
 
 const globalTokens = tokens.global;
 

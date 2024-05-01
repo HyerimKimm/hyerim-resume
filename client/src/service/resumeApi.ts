@@ -1,5 +1,5 @@
-import { hyerimHttp } from './hyerimHttp';
-import { data } from '../types/data';
+import { hyerimHttp } from 'service/hyerimHttp';
+import { data } from 'types/data';
 
 type getResumeDatasPropsType = {
   id: string | undefined;

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button } from '../Buttons.style';
+import { Button } from 'atoms/button/Buttons.style';
 import styled from 'styled-components';
-import tokens from '../../styles/tokens.json';
+import tokens from 'styles/tokens.json';
 
 const globalTokens = tokens.global;
 
