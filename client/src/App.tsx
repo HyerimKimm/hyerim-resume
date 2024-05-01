@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
-
 import { AppContainer } from 'atoms/Layout.style';
 import { GlobalStyle } from 'styles/global';
 

@@ -1,9 +1,8 @@
-import React from 'react';
 import styled from 'styled-components';
 import tokens from 'styles/tokens.json';
 
-import { isDarkStore } from 'store/isDarkStore';
 import Toggle from 'atoms/toggle/Toggle';
+import { isDarkStore } from 'store/isDarkStore';
 
 const globalTokens = tokens.global;
 
