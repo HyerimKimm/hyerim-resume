@@ -1,6 +1,6 @@
-import { FlexBox } from '../atoms/Layout.style';
-import { Heading1Typo } from '../atoms/typography/Typography.style';
-import { isDarkStore } from '../store/isDarkStore';
+import { FlexBox } from 'atoms/Layout.style';
+import { Heading1Typo } from 'atoms/typography/Typography.style';
+import { isDarkStore } from 'store/isDarkStore';
 
 const ErrorPage = () => {
   const { isDark } = isDarkStore();

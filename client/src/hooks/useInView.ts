@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { TABLET_WIDTH } from '../constants/constants';
+import { TABLET_WIDTH } from 'constants/constants';
 
 type useInViewPropsType = {
   target: React.RefObject<HTMLElement>;

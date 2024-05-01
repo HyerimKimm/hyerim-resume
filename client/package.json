@@ -65,6 +65,7 @@
     "@storybook/react-webpack5": "^7.5.3",
     "@storybook/testing-library": "^0.2.2",
     "@tanstack/eslint-plugin-query": "^5.20.1",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "babel-plugin-named-exports-order": "^0.0.2",
     "eslint-plugin-storybook": "^0.6.15",
     "prettier": "^3.1.0",

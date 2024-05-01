@@ -4,7 +4,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { AppContainer } from 'atoms/Layout.style';
 import { GlobalStyle } from 'styles/global';
 
-import ErrorPage from 'pages/ErrorPage';
+import ErrorPage from 'pages/error_page/ErrorPage';
 
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
