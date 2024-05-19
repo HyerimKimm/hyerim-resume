@@ -11,6 +11,7 @@ import queryClient from 'queries/queryClient';
 
 import { isDarkStore } from 'store/isDarkStore';
 import ResumeDetail from 'pages/resume_detail/ResumeDetail';
+import Toast from 'components/toast/Toast';
 
 function App() {
   const isDark = isDarkStore((state) => state.isDark);
@@ -20,6 +21,7 @@ function App() {
       <ReactQueryDevtools initialIsOpen={true} />
       <GlobalStyle $isDark={isDark} />
       <AppContainer>
+        <Toast />
         <Router>
           <ErrorBoundary fallback={<ErrorPage />}>
             <Routes>

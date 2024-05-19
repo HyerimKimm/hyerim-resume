@@ -11,7 +11,7 @@ const ToggleHeader = () => {
   const setIsDark = isDarkStore((state) => state.setIsDark);
 
   return (
-    <IsDarkTogglePosition $isDark={isDark}>
+    <IsDarkTogglePosition>
       <Toggle
         isDark={isDark}
         isSelected={isDark}
@@ -23,7 +23,7 @@ const ToggleHeader = () => {
   );
 };
 
-const IsDarkTogglePosition = styled.div<{ $isDark: boolean }>`
+const IsDarkTogglePosition = styled.div`
   width: 100%;
   height: fit-content;
   display: flex;

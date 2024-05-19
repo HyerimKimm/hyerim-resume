@@ -1,11 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
-import NotoSansKRRegular from '../assets/fonts/NotoSansKR-Regular.ttf';
-import NotoSansKRBold from '../assets/fonts/NotoSansKR-Bold.ttf';
-import NotoSansKRThin from '../assets/fonts/NotoSansKR-Thin.ttf';
-import NotoSansKRMidium from '../assets/fonts/NotoSansKR-Medium.ttf';
-import OrbitRegular from '../assets/fonts/Orbit-Regular.ttf';
-import tokens from './tokens.json';
-import { frameInBottomToTopAnimation } from './animation';
+import NotoSansKRRegular from 'assets/fonts/NotoSansKR-Regular.ttf';
+import NotoSansKRBold from 'assets/fonts/NotoSansKR-Bold.ttf';
+import NotoSansKRThin from 'assets/fonts/NotoSansKR-Thin.ttf';
+import NotoSansKRMidium from 'assets/fonts/NotoSansKR-Medium.ttf';
+import OrbitRegular from 'assets/fonts/Orbit-Regular.ttf';
+import tokens from 'styles/tokens.json';
+import { frameInBottomToTopAnimation } from 'styles/animation';
 
 const globalTokens = tokens.global;
 
