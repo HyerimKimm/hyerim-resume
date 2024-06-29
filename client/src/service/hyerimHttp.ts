@@ -1,9 +1,8 @@
 import axios, { Axios } from 'axios';
 
 const DOMAIN = process.env.REACT_APP_DOMAIN;
-const PORT = process.env.REACT_APP_PORT;
 
-export const ROOT_URL = `${DOMAIN}:${PORT}`;
+export const ROOT_URL = `${DOMAIN}`;
 
 export const hyerimHttp: Axios = axios.create({
   baseURL: ROOT_URL,
