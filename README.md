@@ -1,9 +1,9 @@
 # hyerim-resume
-이력서 홈페이지입니다. 
+
+이력서 홈페이지입니다.
 
 기술 스텍
-React.ts Node.js Express.js MySQL 
+React.ts Node.js Express.js MySQL AWS
 
 배포 링크
-[http://hyerim-resume.s3-website.ap-northeast-2.amazonaws.com/resume/1
-](https://www.hyerim-resume.com/resume/1)
+<a href="https://www.hyerim-resume.com/resume/1">👉🏻 혜림이의 이력서 바로가기</a>
