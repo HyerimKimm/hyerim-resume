@@ -6,6 +6,7 @@
 /server/.DS_Store
 /server/SSREADME.md
 /server/config/secret.js
+/server/test-pair.pem
 
 # 최상위 폴더 ignore
 .idea/*
