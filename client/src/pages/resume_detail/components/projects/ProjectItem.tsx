@@ -35,7 +35,7 @@ const ProjectItem = ({ project }: projectItemPropsType) => {
             ? dayjs(project.endDate, 'YYYYMM').format('YYYY.MM')
             : project.endDate}
         </SmallTextTypo>
-        {project.deployLink && (
+        {project.deployLink && project.isServiceEnd === 0 ? (
           <a
             href={project.deployLink}
             target={'_blank'}
@@ -45,7 +45,11 @@ const ProjectItem = ({ project }: projectItemPropsType) => {
               👉🏻 배포링크 바로가기
             </SmallTextTypo>
           </a>
-        )}
+        ) : project.isServiceEnd === 1 ? (
+          <SmallTextTypo $isDark={isDark} $mode={'negative'}>
+            서비스 종료
+          </SmallTextTypo>
+        ) : null}
         {project.repositoryLink && (
           <a
             href={project.repositoryLink}
@@ -56,11 +60,6 @@ const ProjectItem = ({ project }: projectItemPropsType) => {
               👉🏻 리포지토리 바로가기
             </SmallTextTypo>
           </a>
-        )}
-        {project.isServiceEnd && (
-          <SmallTextTypo $isDark={isDark} $mode={'negative'}>
-            {project.isServiceEnd}
-          </SmallTextTypo>
         )}
         {project.imgUrl && (
           <FlexBox
