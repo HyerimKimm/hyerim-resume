@@ -35,6 +35,11 @@ const ProjectItem = ({ project }: projectItemPropsType) => {
             ? dayjs(project.endDate, 'YYYYMM').format('YYYY.MM')
             : project.endDate}
         </SmallTextTypo>
+        {/* 
+          배포 링크가 있는 경우 : 배포 링크 바로가기 버튼
+          배포 서비스가 종료된 경우 : 서비스 종료 문구 출력
+          배포 링크는 없지만 배포 서비스가 없는 경우 : 아무것도 출력 안함
+        */}
         {project.deployLink && project.isServiceEnd === 0 ? (
           <a
             href={project.deployLink}
