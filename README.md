@@ -2,7 +2,7 @@
 
 이력서 홈페이지입니다.
 
-### 배포 링크
+### 배포 링크 (서버 종료)
 👉🏻 <a href="http://hyerim-resume.s3-website.ap-northeast-2.amazonaws.com/resume/1"> 혜림이의 이력서 바로가기</a>
 
 ### 기술 스텍
